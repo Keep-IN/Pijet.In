@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SignUp">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="-93dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tLay1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="50dp"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/tPiw3"
+                app:layout_constraintTop_toBottomOf="@+id/tPiw3">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/ic_text_field_real"
+                    android:hint="hint" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/tPiw7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:fontFamily="@font/poppins"
+                android:text="Email"
+                android:textSize="14dp"
+                app:layout_constraintBottom_toTopOf="@+id/tLay2"
+                app:layout_constraintStart_toStartOf="@+id/tLay2" />
+
+            <TextView
+                android:id="@+id/tPiw8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="*"
+                android:textColor="#FF0000"
+                app:layout_constraintStart_toEndOf="@+id/tPiw7"
+                app:layout_constraintTop_toBottomOf="@+id/tlay3" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tLay2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="31dp"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp"
+                app:layout_constraintEnd_toEndOf="@+id/tlay3"
+                app:layout_constraintStart_toStartOf="@+id/tlay3"
+                app:layout_constraintTop_toBottomOf="@+id/tlay3">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/ic_text_field"
+                    android:hint="hint" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/tPiw5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:fontFamily="@font/poppins"
+                android:text="No Telepon"
+                android:textSize="14dp"
+                app:layout_constraintBottom_toTopOf="@+id/tlay3"
+                app:layout_constraintStart_toStartOf="@+id/tlay3" />
+
+            <TextView
+                android:id="@+id/tPiw13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="3dp"
+                android:text="*"
+                android:textColor="#FF0000"
+                app:layout_constraintStart_toEndOf="@+id/tPiw12"
+                app:layout_constraintTop_toTopOf="@+id/tPiw12" />
+
+            <TextView
+                android:id="@+id/tPiw4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="2dp"
+                android:layout_marginTop="25dp"
+                android:text="*"
+                android:textColor="#FD0000"
+                app:layout_constraintStart_toEndOf="@+id/tPiw3"
+                app:layout_constraintTop_toBottomOf="@+id/tPiw2" />
+
+            <ImageView
+                android:id="@+id/imPiw1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="60dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_arrow_back" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tlay3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="31dp"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp"
+                app:layout_constraintEnd_toEndOf="@+id/tLay1"
+                app:layout_constraintStart_toStartOf="@+id/tLay1"
+                app:layout_constraintTop_toBottomOf="@+id/tLay1">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/ic_text_field"
+                    android:hint="hint" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/tPiw16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:fontFamily="@font/poppins"
+                android:text="Masuk"
+                android:textColor="#FF0000"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/tPiw15"
+                app:layout_constraintStart_toStartOf="@+id/tPiw15"
+                app:layout_constraintTop_toBottomOf="@+id/tPiw15" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tLay4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="31dp"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp"
+                app:layout_constraintEnd_toEndOf="@+id/tLay2"
+                app:layout_constraintStart_toStartOf="@+id/tLay2"
+                app:layout_constraintTop_toBottomOf="@+id/tLay2"
+                app:passwordToggleEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/ic_text_field"
+                    android:hint="Password"
+                    android:inputType="textPassword" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tLay5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="45dp"
+                android:background="@drawable/ic_text_field"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp"
+                app:layout_constraintEnd_toEndOf="@+id/tLay4"
+                app:layout_constraintStart_toStartOf="@+id/tLay4"
+                app:layout_constraintTop_toBottomOf="@+id/tLay4"
+                app:passwordToggleEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Password"
+                    android:inputType="textPassword" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/tPiw1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="Selamat Bergabung"
+                android:textSize="18dp"
+                app:layout_constraintEnd_toEndOf="@+id/imPiw2"
+                app:layout_constraintStart_toStartOf="@+id/imPiw2"
+                app:layout_constraintTop_toBottomOf="@+id/imPiw2" />
+
+            <TextView
+                android:id="@+id/tPiw11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins"
+                android:text="Kata sandi ini digunakan untuk masuk"
+                android:textSize="12dp"
+                app:layout_constraintStart_toStartOf="@+id/tLay4"
+                app:layout_constraintTop_toBottomOf="@+id/tLay4" />
+
+            <ImageView
+                android:id="@+id/imPiw2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="195dp"
+                android:layout_marginTop="105dp"
+                android:layout_marginEnd="195dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_logo" />
+
+            <TextView
+                android:id="@+id/tPiw6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="2dp"
+                android:text="*"
+                android:textColor="#FF0000"
+                app:layout_constraintStart_toEndOf="@+id/tPiw5"
+                app:layout_constraintTop_toBottomOf="@+id/tLay1" />
+
+            <TextView
+                android:id="@+id/tPiw2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="26dp"
+                android:fontFamily="@font/poppins"
+                android:text="Masukkan data diri anda"
+                android:textSize="14dp"
+                app:layout_constraintEnd_toEndOf="@+id/tPiw1"
+                app:layout_constraintStart_toStartOf="@+id/tPiw1"
+                app:layout_constraintTop_toBottomOf="@+id/tPiw1" />
+
+            <TextView
+                android:id="@+id/tPiw9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:fontFamily="@font/poppins"
+                android:text="Kata Sandi"
+                app:layout_constraintBottom_toTopOf="@+id/tLay4"
+                app:layout_constraintStart_toStartOf="@+id/tLay4" />
+
+            <TextView
+                android:id="@+id/tPiw14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins"
+                android:text="Pastikan sama"
+                app:layout_constraintStart_toStartOf="@+id/tLay5"
+                app:layout_constraintTop_toBottomOf="@+id/tLay5" />
+
+            <TextView
+                android:id="@+id/tPiw15"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="Anda sudah punya akun ?"
+                app:layout_constraintEnd_toEndOf="@+id/btnLogin"
+                app:layout_constraintStart_toStartOf="@+id/btnLogin"
+                app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
+
+            <TextView
+                android:id="@+id/tPiw3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="26dp"
+                android:fontFamily="@font/poppins"
+                android:text="Nama"
+                android:textSize="14dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tPiw2" />
+
+            <Button
+                android:id="@+id/btnLogin"
+                android:layout_width="145dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="133dp"
+                android:layout_marginTop="26dp"
+                android:layout_marginEnd="133dp"
+                android:backgroundTint="#56AB91"
+                android:fontFamily="@font/poppins"
+                android:text="Daftar"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tPiw14" />
+
+            <TextView
+                android:id="@+id/tPiw12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins"
+                android:text="Ketik ulang kata sandi anda"
+                android:textSize="14dp"
+                app:layout_constraintBottom_toTopOf="@+id/tLay5"
+                app:layout_constraintStart_toStartOf="@+id/tLay5" />
+
+            <TextView
+                android:id="@+id/tPiw10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="3dp"
+                android:text="*"
+                android:textColor="#FF0000"
+                app:layout_constraintStart_toEndOf="@+id/tPiw9"
+                app:layout_constraintTop_toBottomOf="@+id/tLay2" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
