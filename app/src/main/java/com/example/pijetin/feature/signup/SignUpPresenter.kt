@@ -1,4 +1,4 @@
-package com.example.pijetin.feature
+package com.example.pijetin.feature.signup
 
 class SignUpPresenter (
     private val view: SignUpContract

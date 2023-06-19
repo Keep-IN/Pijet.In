@@ -1,4 +1,4 @@
-package com.example.pijetin.feature
+package com.example.pijetin.feature.signup
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

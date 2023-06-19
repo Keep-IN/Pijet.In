@@ -1,4 +1,4 @@
-package com.example.pijetin.feature
+package com.example.pijetin.feature.signup
 
 interface SignUpContract {
     fun onLoading()
