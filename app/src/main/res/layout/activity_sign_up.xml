@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SignUp">
+    tools:context=".feature.SignUp">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -17,7 +17,7 @@
             android:layout_height="wrap_content">
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/tLay1"
+                android:id="@+id/tilUsername"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
@@ -32,7 +32,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/ic_text_field_real"
-                    android:hint="hint" />
+                    android:hint="Nama" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
@@ -40,11 +40,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
-                android:fontFamily="@font/poppins"
+                android:fontFamily="@font/poppins_regular"
                 android:text="Email"
                 android:textSize="14dp"
-                app:layout_constraintBottom_toTopOf="@+id/tLay2"
-                app:layout_constraintStart_toStartOf="@+id/tLay2" />
+                app:layout_constraintBottom_toTopOf="@+id/tilEmail"
+                app:layout_constraintStart_toStartOf="@+id/tilEmail" />
 
             <TextView
                 android:id="@+id/tPiw8"
@@ -53,24 +53,25 @@
                 android:text="*"
                 android:textColor="#FF0000"
                 app:layout_constraintStart_toEndOf="@+id/tPiw7"
-                app:layout_constraintTop_toBottomOf="@+id/tlay3" />
+                app:layout_constraintTop_toBottomOf="@+id/tilTelephone" />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/tLay2"
+                android:id="@+id/tilEmail"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="31dp"
                 app:boxStrokeWidth="0dp"
                 app:boxStrokeWidthFocused="0dp"
-                app:layout_constraintEnd_toEndOf="@+id/tlay3"
-                app:layout_constraintStart_toStartOf="@+id/tlay3"
-                app:layout_constraintTop_toBottomOf="@+id/tlay3">
+                app:layout_constraintEnd_toEndOf="@+id/tilTelephone"
+                app:layout_constraintStart_toStartOf="@+id/tilTelephone"
+                app:layout_constraintTop_toBottomOf="@+id/tilTelephone">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:inputType="textEmailAddress"
                     android:background="@drawable/ic_text_field"
-                    android:hint="hint" />
+                    android:hint="Email" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
@@ -78,11 +79,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
-                android:fontFamily="@font/poppins"
+                android:fontFamily="@font/poppins_regular"
                 android:text="No Telepon"
                 android:textSize="14dp"
-                app:layout_constraintBottom_toTopOf="@+id/tlay3"
-                app:layout_constraintStart_toStartOf="@+id/tlay3" />
+                app:layout_constraintBottom_toTopOf="@+id/tilTelephone"
+                app:layout_constraintStart_toStartOf="@+id/tilTelephone" />
 
             <TextView
                 android:id="@+id/tPiw13"
@@ -113,24 +114,25 @@
                 android:layout_marginTop="60dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ic_arrow_back" />
+                android:src="@drawable/ic_arrow_back" />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/tlay3"
+                android:id="@+id/tilTelephone"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="31dp"
                 app:boxStrokeWidth="0dp"
                 app:boxStrokeWidthFocused="0dp"
-                app:layout_constraintEnd_toEndOf="@+id/tLay1"
-                app:layout_constraintStart_toStartOf="@+id/tLay1"
-                app:layout_constraintTop_toBottomOf="@+id/tLay1">
+                app:layout_constraintEnd_toEndOf="@+id/tilUsername"
+                app:layout_constraintStart_toStartOf="@+id/tilUsername"
+                app:layout_constraintTop_toBottomOf="@+id/tilUsername">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/ic_text_field"
-                    android:hint="hint" />
+                    android:inputType="number"
+                    android:hint="No.Telp" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
@@ -138,7 +140,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
-                android:fontFamily="@font/poppins"
+                android:fontFamily="@font/poppins_regular"
                 android:text="Masuk"
                 android:textColor="#FF0000"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -147,15 +149,15 @@
                 app:layout_constraintTop_toBottomOf="@+id/tPiw15" />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/tLay4"
+                android:id="@+id/tilPassword"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="31dp"
                 app:boxStrokeWidth="0dp"
                 app:boxStrokeWidthFocused="0dp"
-                app:layout_constraintEnd_toEndOf="@+id/tLay2"
-                app:layout_constraintStart_toStartOf="@+id/tLay2"
-                app:layout_constraintTop_toBottomOf="@+id/tLay2"
+                app:layout_constraintEnd_toEndOf="@+id/tilEmail"
+                app:layout_constraintStart_toStartOf="@+id/tilEmail"
+                app:layout_constraintTop_toBottomOf="@+id/tilEmail"
                 app:passwordToggleEnabled="true">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -167,16 +169,16 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/tLay5"
+                android:id="@+id/tilRePassword"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="45dp"
+                android:layout_marginTop="31dp"
                 android:background="@drawable/ic_text_field"
                 app:boxStrokeWidth="0dp"
                 app:boxStrokeWidthFocused="0dp"
-                app:layout_constraintEnd_toEndOf="@+id/tLay4"
-                app:layout_constraintStart_toStartOf="@+id/tLay4"
-                app:layout_constraintTop_toBottomOf="@+id/tLay4"
+                app:layout_constraintEnd_toEndOf="@+id/tilPassword"
+                app:layout_constraintStart_toStartOf="@+id/tilPassword"
+                app:layout_constraintTop_toBottomOf="@+id/tilPassword"
                 app:passwordToggleEnabled="true">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -198,16 +200,6 @@
                 app:layout_constraintStart_toStartOf="@+id/imPiw2"
                 app:layout_constraintTop_toBottomOf="@+id/imPiw2" />
 
-            <TextView
-                android:id="@+id/tPiw11"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins"
-                android:text="Kata sandi ini digunakan untuk masuk"
-                android:textSize="12dp"
-                app:layout_constraintStart_toStartOf="@+id/tLay4"
-                app:layout_constraintTop_toBottomOf="@+id/tLay4" />
-
             <ImageView
                 android:id="@+id/imPiw2"
                 android:layout_width="wrap_content"
@@ -218,7 +210,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ic_logo" />
+                android:src="@drawable/ic_logo" />
 
             <TextView
                 android:id="@+id/tPiw6"
@@ -228,14 +220,14 @@
                 android:text="*"
                 android:textColor="#FF0000"
                 app:layout_constraintStart_toEndOf="@+id/tPiw5"
-                app:layout_constraintTop_toBottomOf="@+id/tLay1" />
+                app:layout_constraintTop_toBottomOf="@+id/tilUsername" />
 
             <TextView
                 android:id="@+id/tPiw2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="26dp"
-                android:fontFamily="@font/poppins"
+                android:fontFamily="@font/poppins_regular"
                 android:text="Masukkan data diri anda"
                 android:textSize="14dp"
                 app:layout_constraintEnd_toEndOf="@+id/tPiw1"
@@ -247,30 +239,23 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
-                android:fontFamily="@font/poppins"
+                android:fontFamily="@font/poppins_regular"
                 android:text="Kata Sandi"
-                app:layout_constraintBottom_toTopOf="@+id/tLay4"
-                app:layout_constraintStart_toStartOf="@+id/tLay4" />
-
-            <TextView
-                android:id="@+id/tPiw14"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins"
-                android:text="Pastikan sama"
-                app:layout_constraintStart_toStartOf="@+id/tLay5"
-                app:layout_constraintTop_toBottomOf="@+id/tLay5" />
+                app:layout_constraintBottom_toTopOf="@+id/tilPassword"
+                app:layout_constraintStart_toStartOf="@+id/tilPassword" />
 
             <TextView
                 android:id="@+id/tPiw15"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
+                android:layout_marginBottom="45dp"
                 android:fontFamily="@font/poppins_semibold"
                 android:text="Anda sudah punya akun ?"
-                app:layout_constraintEnd_toEndOf="@+id/btnLogin"
-                app:layout_constraintStart_toStartOf="@+id/btnLogin"
-                app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/btnDaftar"
+                app:layout_constraintStart_toStartOf="@+id/btnDaftar"
+                app:layout_constraintTop_toBottomOf="@+id/btnDaftar" />
 
             <TextView
                 android:id="@+id/tPiw3"
@@ -278,35 +263,35 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="50dp"
                 android:layout_marginTop="26dp"
-                android:fontFamily="@font/poppins"
+                android:fontFamily="@font/poppins_regular"
                 android:text="Nama"
                 android:textSize="14dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tPiw2" />
 
-            <Button
-                android:id="@+id/btnLogin"
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnDaftar"
                 android:layout_width="145dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="133dp"
-                android:layout_marginTop="26dp"
+                android:layout_marginTop="45dp"
                 android:layout_marginEnd="133dp"
                 android:backgroundTint="#56AB91"
-                android:fontFamily="@font/poppins"
+                android:fontFamily="@font/poppins_semibold"
                 android:text="Daftar"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tPiw14" />
+                app:layout_constraintTop_toBottomOf="@+id/tilRePassword" />
 
             <TextView
                 android:id="@+id/tPiw12"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins"
+                android:fontFamily="@font/poppins_regular"
                 android:text="Ketik ulang kata sandi anda"
                 android:textSize="14dp"
-                app:layout_constraintBottom_toTopOf="@+id/tLay5"
-                app:layout_constraintStart_toStartOf="@+id/tLay5" />
+                app:layout_constraintBottom_toTopOf="@+id/tilRePassword"
+                app:layout_constraintStart_toStartOf="@+id/tilRePassword" />
 
             <TextView
                 android:id="@+id/tPiw10"
@@ -316,7 +301,7 @@
                 android:text="*"
                 android:textColor="#FF0000"
                 app:layout_constraintStart_toEndOf="@+id/tPiw9"
-                app:layout_constraintTop_toBottomOf="@+id/tLay2" />
+                app:layout_constraintTop_toBottomOf="@+id/tilEmail" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 
