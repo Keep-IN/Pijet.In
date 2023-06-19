@@ -8,6 +8,7 @@ import android.os.Looper
 import android.view.WindowManager
 import com.example.pijetin.databinding.ActivityOnBoardingBinding
 import com.example.pijetin.feature.Login.Login
+import com.example.pijetin.feature.signup.SignUp
 
 class OnBoarding : AppCompatActivity() {
     private lateinit var binding: ActivityOnBoardingBinding
@@ -18,6 +19,10 @@ class OnBoarding : AppCompatActivity() {
 
         binding.button2.setOnClickListener {
             startActivity(Intent(this,Login::class.java ))
+        }
+
+        binding.button.setOnClickListener {
+            startActivity(Intent(this, SignUp::class.java))
         }
     }
 }
