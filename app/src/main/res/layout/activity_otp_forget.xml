@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".feature.ForgetPass.OtpForget">
+
+    <TextView
+        android:id="@+id/tvWelcomeOtpForget"
+        android:layout_width="245dp"
+        android:layout_height="63dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/poppins_regular"
+        android:gravity="center"
+        android:text="Cek pesan masuk email anda kami mengirim kode verifikasi yang berjumlah 4 digit"
+        app:layout_constraintEnd_toEndOf="@+id/tvJudulOtpForget"
+        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintStart_toStartOf="@+id/tvJudulOtpForget"
+        app:layout_constraintTop_toBottomOf="@+id/tvJudulOtpForget" />
+
+    <TextView
+        android:id="@+id/tvJudulOtpForget"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/poppins_bold"
+        android:text="Ubah kata sandi"
+        app:layout_constraintEnd_toEndOf="@+id/ivLogoOtpForget"
+        app:layout_constraintStart_toStartOf="@+id/ivLogoOtpForget"
+        app:layout_constraintTop_toBottomOf="@+id/ivLogoOtpForget" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/ivLogoOtpForget"
+        android:layout_width="38dp"
+        android:layout_height="18dp"
+        android:layout_marginTop="98dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_logo" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/ivBackOtpForget"
+        android:layout_width="10dp"
+        android:layout_height="17dp"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="60dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_back_hitam" />
+
+    <io.bitfactory.pincodelayout.PinCodeLayout
+        android:id="@+id/pinOtpForget"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        app:activeBarColor="@color/white"
+        app:filledPinIcon="@drawable/ic_pin"
+        app:inputBackground="@color/white"
+        app:layout_constraintEnd_toEndOf="@+id/tvWelcomeOtpForget"
+        app:layout_constraintStart_toStartOf="@+id/tvWelcomeOtpForget"
+        app:layout_constraintTop_toBottomOf="@+id/tvWelcomeOtpForget"
+        app:pinLength="4"
+        app:pinTextColor="@color/black"
+        app:pinType="digits"
+        app:unfilledPinIcon="@drawable/ic_pin" />
+
+    <TextView
+        android:id="@+id/tvKirimUlangOtpForget"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/poppins_regular"
+        android:text="Kirim Ulang Kode"
+        android:textColor="#E21F30"
+        app:layout_constraintEnd_toEndOf="@+id/pinOtpForget"
+        app:layout_constraintStart_toStartOf="@+id/pinOtpForget"
+        app:layout_constraintTop_toBottomOf="@+id/tvTimerOtpForget" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnSelanjutnyaOtpForget"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:backgroundTint="#56AB91"
+        android:fontFamily="@font/poppins_regular"
+        android:text="Selanjutnya"
+        app:layout_constraintEnd_toEndOf="@+id/tvKirimUlangOtpForget"
+        app:layout_constraintStart_toStartOf="@+id/tvKirimUlangOtpForget"
+        app:layout_constraintTop_toBottomOf="@+id/tvKirimUlangOtpForget" />
+
+    <TextView
+        android:id="@+id/tvTimerOtpForget"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="03:00"
+
+        android:textColor="#A9A9A9"
+        app:layout_constraintEnd_toEndOf="@+id/pinOtpForget"
+        app:layout_constraintStart_toStartOf="@+id/pinOtpForget"
+        app:layout_constraintTop_toBottomOf="@+id/pinOtpForget" />
+</androidx.constraintlayout.widget.ConstraintLayout>
