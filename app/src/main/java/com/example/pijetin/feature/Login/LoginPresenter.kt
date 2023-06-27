@@ -37,7 +37,7 @@ class LoginPresenter(
     }
     fun validateCredential(email: String, password: String){
         isEmailCorrect= email == "keping@gmail.com"
-        isPasswordCorrect = password == "yantogoblok"
+        isPasswordCorrect = password == "kudabalapliar"
 
         when(isEmailCorrect){
             true -> view.onErrorEmpty(7)
