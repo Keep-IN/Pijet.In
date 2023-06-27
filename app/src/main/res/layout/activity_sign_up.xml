@@ -31,8 +31,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/ic_text_field_real"
-                    android:hint="Nama" />
+                    android:background="@drawable/ic_text_field_real" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
@@ -69,9 +68,8 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="textEmailAddress"
                     android:background="@drawable/ic_text_field"
-                    android:hint="Email" />
+                    android:inputType="textEmailAddress" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
@@ -131,8 +129,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/ic_text_field"
-                    android:inputType="number"
-                    android:hint="No.Telp" />
+                    android:inputType="number" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
@@ -164,7 +161,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/ic_text_field"
-                    android:hint="Password"
                     android:inputType="textPassword" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -173,7 +169,6 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="31dp"
-                android:background="@drawable/ic_text_field"
                 app:boxStrokeWidth="0dp"
                 app:boxStrokeWidthFocused="0dp"
                 app:layout_constraintEnd_toEndOf="@+id/tilPassword"
@@ -184,7 +179,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Password"
+                    android:background="@drawable/bg_field"
                     android:inputType="textPassword" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -279,6 +274,7 @@
                 android:backgroundTint="#56AB91"
                 android:fontFamily="@font/poppins_semibold"
                 android:text="Daftar"
+                android:enabled="false"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tilRePassword" />
@@ -290,6 +286,7 @@
                 android:fontFamily="@font/poppins_regular"
                 android:text="Ketik ulang kata sandi anda"
                 android:textSize="14dp"
+
                 app:layout_constraintBottom_toTopOf="@+id/tilRePassword"
                 app:layout_constraintStart_toStartOf="@+id/tilRePassword" />
 

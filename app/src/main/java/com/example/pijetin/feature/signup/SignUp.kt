@@ -1,9 +1,12 @@
 package com.example.pijetin.feature.signup
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.core.widget.doOnTextChanged
+import com.example.pijetin.OnBoarding
 import com.example.pijetin.databinding.ActivitySignUpBinding
+import com.example.pijetin.feature.Login.Login
 
 class SignUp : AppCompatActivity(), SignUpContract {
     private lateinit var  binding: ActivitySignUpBinding
@@ -13,9 +16,20 @@ class SignUp : AppCompatActivity(), SignUpContract {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
+        binding.imPiw1.setOnClickListener {
+            startActivity(Intent(this, OnBoarding::class.java ))
+        }
+
+        binding.btnDaftar.setOnClickListener {
+            startActivity(Intent(this, EmailVerification::class.java ))
+        }
+        binding.tPiw16.setOnClickListener {
+            startActivity(Intent(this, Login::class.java ))
+        }
+
         binding.tilEmail.editText?.doOnTextChanged { text, start, before, count ->
             validateInput()
-            presenter.validateEmail(binding.tilEmail.editText?.text.toString())
+            presenter.validateEmail(binding.tilEmail.editText?.text.toString(), )
         }
         binding.tilPassword.editText?.doOnTextChanged { text, start, before, count ->
             validateInput()
@@ -30,13 +44,25 @@ class SignUp : AppCompatActivity(), SignUpContract {
         }
         binding.tilRePassword.editText?.doOnTextChanged { text, start, before, count ->
             validateInput()
+            presenter.validateRepassword(binding.tilPassword.editText?.text.toString(),binding.tilRePassword.editText?.text.toString())
+        }
+        binding.btnDaftar.setOnClickListener {
+            presenter.emailAvailable(binding.tilEmail.editText?.text.toString())
         }
         presenter = SignUpPresenter(this).apply {
             onAtach(this@SignUp)
         }
     }
+
+    override fun onErrorAvailable(code: Int, message: String) {
+        when(code) {
+            8 ->binding.tilEmail.error = message
+        }
+    }
+
     private fun validateInput(){
-        binding.btnDaftar.isEnabled = binding.tilEmail.editText?.text.toString().isNotBlank() &&
+                binding.btnDaftar.isEnabled =
+                binding.tilEmail.editText?.text.toString().isNotBlank() &&
                 binding.tilTelephone.editText?.text.toString().isNotBlank() &&
                 binding.tilPassword.editText?.text.toString().isNotBlank() &&
                 binding.tilUsername.editText?.text.toString().isNotBlank() &&
@@ -55,6 +81,7 @@ class SignUp : AppCompatActivity(), SignUpContract {
             1 ->binding.tilEmail.error = message
             3 ->binding.tilPassword.error = message
             4 ->binding.tilTelephone.error = message
+            5 ->binding.tilRePassword.error = message
         }
     }
 
@@ -75,6 +102,7 @@ class SignUp : AppCompatActivity(), SignUpContract {
             2 ->binding.tilPassword.isErrorEnabled =false
             6 ->binding.tilTelephone.error =""
             1 ->binding.tilEmail.error = ""
+            7 ->binding.tilRePassword.error = ""
         }
     }
 }
