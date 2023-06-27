@@ -48,5 +48,9 @@ class LoginPresenter(
             true -> view.onErrorEmpty(8)
             false -> view.onErrorFalse(6, "Password salah!")
         }
+
+        if(isEmailCorrect && isPasswordCorrect) {
+            view.onSuccesLogin()
+        }
     }
 }
