@@ -1,10 +1,14 @@
 package com.example.pijetin.feature.Login
 
+import android.provider.ContactsContract.CommonDataKinds.Email
+
 class LoginPresenter(
     private val view: LoginContract,
 ) {
     private var isEmailValid = false
     private var isPasswordValid = false
+    private var isEmailCorrect = false
+    private var isPasswordCorrect = false
 
     fun onAttach(view: LoginContract){
         this.view
@@ -12,20 +16,37 @@ class LoginPresenter(
     }
     fun validateEmail(email: String): Boolean {
         isEmailValid = email.contains("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}\$".toRegex())
+
         if (isEmailValid) {
             view.onErrorEmpty(1)
-        } else {
+        }else {
             view.onError(2, "Format email yang anda masukkan salah.")
         }
         return isEmailValid
     }
     fun validatePassword(password: String): Boolean {
-        isPasswordValid = password.length > 8
+        isPasswordValid = password.length > 7
+
+
         if (isPasswordValid) {
             view.onErrorEmpty(3)
-        } else {
+        }else {
             view.onError(4, "Password minimal 8 huruf.")
         }
         return isPasswordValid
+    }
+    fun validateCredential(email: String, password: String){
+        isEmailCorrect= email == "keping@gmail.com"
+        isPasswordCorrect = password == "kudabalapliar"
+
+        when(isEmailCorrect){
+            true -> view.onErrorEmpty(7)
+            false -> view.onErrorFalse(5, "Email anda tidak terdaftar!")
+        }
+
+        when(isPasswordCorrect){
+            true -> view.onErrorEmpty(8)
+            false -> view.onErrorFalse(6, "Password salah!")
+        }
     }
 }

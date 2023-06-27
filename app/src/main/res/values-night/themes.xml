@@ -12,6 +12,7 @@
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <item name="android:forceDarkAllowed" tools:targetApi= "q">false</item>
     </style>
 
     <style name="Theme.PijetIn" parent="Base.Theme.PijetIn" />

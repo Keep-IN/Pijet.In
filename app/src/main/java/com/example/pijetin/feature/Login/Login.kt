@@ -11,6 +11,7 @@ import com.example.pijetin.feature.ForgetPass.ForgetPassword
 class Login : AppCompatActivity(), LoginContract {
     private lateinit var binding: ActivityLoginBinding
     private lateinit var presenter: LoginPresenter
+
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
@@ -21,8 +22,10 @@ class Login : AppCompatActivity(), LoginContract {
         }
 
         binding.ivBackLogin.setOnClickListener {
-            startActivity(Intent(this,OnBoarding::class.java ))
+            onBackPressedDispatcher.onBackPressed()
         }
+
+        binding.btnMasukLogin.isEnabled = false
 
         presenter = LoginPresenter(this).apply{
             onAttach(this@Login)
@@ -35,6 +38,11 @@ class Login : AppCompatActivity(), LoginContract {
         binding.tilPwLogin.editText?.doOnTextChanged { text, start, before, count ->
             validateInput()
             presenter.validatePassword((binding.tilPwLogin.editText?.text.toString()))
+        }
+
+        binding.btnMasukLogin.setOnClickListener{
+            presenter.validateCredential(binding.tilEmailLogin.editText?.text.toString(),
+                binding.tilPwLogin.editText?.text.toString())
         }
     }
     private fun validateInput(){
@@ -52,8 +60,8 @@ class Login : AppCompatActivity(), LoginContract {
 
     override fun onError(code: Int, message: String) {
         when(code){
-            2 -> binding.tilEmailLogin.error=message
-            4 -> binding.tilPwLogin.error=message
+            2 -> binding.tilEmailLogin.error = message
+            4 -> binding.tilPwLogin.error = message
         }
     }
 
@@ -69,8 +77,15 @@ class Login : AppCompatActivity(), LoginContract {
         TODO("Not yet implemented")
     }
 
-    override fun onErrorLogin() {
+    override fun onErrorLogin(code: Int, message: String) {
         TODO("Not yet implemented")
+    }
+
+    override fun onErrorFalse(code: Int, message: String) {
+        when(code){
+            5 -> binding.tilEmailLogin.error=message
+            6 -> binding.tilPwLogin.error=message
+        }
     }
 
     override fun onErrorEmpty(code: Int) {

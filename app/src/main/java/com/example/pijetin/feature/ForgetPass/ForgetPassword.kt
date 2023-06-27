@@ -16,7 +16,11 @@ class ForgetPassword : AppCompatActivity(),Forgetcontract {
         setContentView(binding.root)
 
         binding.ivBackForget.setOnClickListener {
-            startActivity(Intent(this,Login::class.java ))
+            onBackPressedDispatcher.onBackPressed()
+        }
+
+        binding.btnForget.setOnClickListener {
+            startActivity(Intent(this,OtpForget::class.java ))
         }
 
         presenter = ForgetPresenter(this).apply {
