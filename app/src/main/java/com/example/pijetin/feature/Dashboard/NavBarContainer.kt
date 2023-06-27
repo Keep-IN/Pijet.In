@@ -19,6 +19,7 @@ class NavBarContainer : AppCompatActivity() {
 
         binding.bottomNavigationView.selectedItemId = R.id.nav_home
         binding.bottomNavigationView.itemIconTintList = null
+        binding.bottomNavigationView.isItemActiveIndicatorEnabled = false
         binding.bottomNavigationView.setOnItemSelectedListener {
             when(it.itemId){
                 R.id.nav_home -> replaceFragment(HomeFragment())
