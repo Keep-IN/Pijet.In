@@ -8,4 +8,6 @@ interface SignUpContract {
     fun onSucces()
     fun onErrorSignup()
     fun onErrorSuccess(code: Int, message: String)
+
+    fun onErrorAvailable(code : Int, message: String)
 }

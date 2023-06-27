@@ -7,6 +7,7 @@ class SignUpPresenter (
     private var isPasswordValid = false
     private var isTelephoneValid = false
     private var isValidateRepassword = false
+    private var isEmailAvailable = false
 
    fun onAtach(view: SignUpContract) {
        this.view
@@ -20,17 +21,25 @@ class SignUpPresenter (
         }
         return isEmailValid
     }
+
+    fun emailAvailable (email : String) : Boolean {
+        isEmailAvailable = email == "keping@gmail.com"
+        if (email == "keping@gmail.com") {
+            view.onErrorAvailable(8, "Email Sudah Dipakai")
+        }
+        return isEmailAvailable
+    }
     fun validatePassword (password: String): Boolean {
-         isPasswordValid = password.length > 8
+        val isPasswordValid = password.contains ("^(?=.*[a-zA-Z])(?=.*\\d).{8,}\$".toRegex())
         if (isPasswordValid) {
             view.onErrorSuccess(2, "")
         } else {
-            view.onError(3, "Password minimal 8 huruf")
+            view.onError(3, "Password minimal 8 huruf dan kata sandi harus terdiri dari angka dan huruf")
         }
         return isPasswordValid
     }
     fun validateTelephone (phone: String): Boolean {
-        isTelephoneValid = phone.length > 9  && phone.length < 14
+        this.isTelephoneValid = phone.length in 9..13
             if (isTelephoneValid) {
                 view.onErrorSuccess(6,"")
             } else {
@@ -38,10 +47,10 @@ class SignUpPresenter (
             }
         return isTelephoneValid
     }
-    fun validateRepassword ( password: String,repassword: String): Boolean {
+    fun validateRepassword (password : String, repassword: String): Boolean {
         isValidateRepassword = repassword.equals(password)
         if (isValidateRepassword) {
-            view.onSucces()
+            view.onErrorSuccess(7,"")
         } else {
             view.onError(5,"Password tidak sama")
         }
