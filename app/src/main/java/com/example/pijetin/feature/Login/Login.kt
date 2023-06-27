@@ -3,9 +3,11 @@ package com.example.pijetin.feature.Login
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.core.widget.doOnTextChanged
 import com.example.pijetin.OnBoarding
 import com.example.pijetin.databinding.ActivityLoginBinding
+import com.example.pijetin.feature.Dashboard.NavBarContainer
 import com.example.pijetin.feature.ForgetPass.ForgetPassword
 
 class Login : AppCompatActivity(), LoginContract {
@@ -74,7 +76,8 @@ class Login : AppCompatActivity(), LoginContract {
     }
 
     override fun onSuccesLogin() {
-        TODO("Not yet implemented")
+        startActivity(Intent(this, NavBarContainer::class.java))
+        Toast.makeText(this, "login berhasil", Toast.LENGTH_SHORT).show()
     }
 
     override fun onErrorLogin(code: Int, message: String) {
