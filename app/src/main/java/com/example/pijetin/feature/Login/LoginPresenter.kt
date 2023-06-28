@@ -15,6 +15,7 @@ class LoginPresenter(
 
     }
     fun validateEmail(email: String): Boolean {
+        //validasi format email
         isEmailValid = email.contains("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}\$".toRegex())
 
         if (isEmailValid) {
@@ -25,6 +26,7 @@ class LoginPresenter(
         return isEmailValid
     }
     fun validatePassword(password: String): Boolean {
+        //validasi email lebih dari 7 karakter
         isPasswordValid = password.length > 7
 
 
@@ -36,19 +38,23 @@ class LoginPresenter(
         return isPasswordValid
     }
     fun validateCredential(email: String, password: String){
+        //dummy email + password
         isEmailCorrect= email == "keping@gmail.com"
         isPasswordCorrect = password == "kudabalapliar"
 
         when(isEmailCorrect){
+            //fungsi cek email
             true -> view.onErrorEmpty(7)
             false -> view.onErrorFalse(5, "Email anda tidak terdaftar!")
         }
 
         when(isPasswordCorrect){
+            //fungsi cek password
             true -> view.onErrorEmpty(8)
             false -> view.onErrorFalse(6, "Password salah!")
         }
 
+        //testing email+password bener atau salah
         if(isEmailCorrect && isPasswordCorrect) {
             view.onSuccesLogin()
         }
