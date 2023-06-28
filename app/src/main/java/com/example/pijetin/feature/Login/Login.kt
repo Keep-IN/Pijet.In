@@ -37,12 +37,14 @@ class Login : AppCompatActivity(), LoginContract {
             validateInput()
             presenter.validateEmail(binding.tilEmailLogin.editText?.text.toString())
         }
+
         binding.tilPwLogin.editText?.doOnTextChanged { text, start, before, count ->
             validateInput()
             presenter.validatePassword((binding.tilPwLogin.editText?.text.toString()))
         }
 
         binding.btnMasukLogin.setOnClickListener{
+            // cek eror button masuk
             presenter.validateCredential(binding.tilEmailLogin.editText?.text.toString(),
                 binding.tilPwLogin.editText?.text.toString())
         }
@@ -62,6 +64,7 @@ class Login : AppCompatActivity(), LoginContract {
 
     override fun onError(code: Int, message: String) {
         when(code){
+            // nampilin error message
             2 -> binding.tilEmailLogin.error = message
             4 -> binding.tilPwLogin.error = message
         }
@@ -76,6 +79,7 @@ class Login : AppCompatActivity(), LoginContract {
     }
 
     override fun onSuccesLogin() {
+        //fungsi pindah login ke dashboard + allert
         startActivity(Intent(this, NavBarContainer::class.java))
         Toast.makeText(this, "login berhasil", Toast.LENGTH_SHORT).show()
     }
@@ -85,6 +89,7 @@ class Login : AppCompatActivity(), LoginContract {
     }
 
     override fun onErrorFalse(code: Int, message: String) {
+        //nampilin error message
         when(code){
             5 -> binding.tilEmailLogin.error=message
             6 -> binding.tilPwLogin.error=message
@@ -93,6 +98,7 @@ class Login : AppCompatActivity(), LoginContract {
 
     override fun onErrorEmpty(code: Int) {
         when(code){
+            //ngilangin error message
             1 -> binding.tilEmailLogin.error=""
             3 -> binding.tilPwLogin.error=""
         }
