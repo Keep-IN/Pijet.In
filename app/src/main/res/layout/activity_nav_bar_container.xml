@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:background="#FFFFFF"
         app:itemIconTint="@color/teal_700"
-        app:itemRippleColor="#56AB91"
+        app:itemRippleColor="#2856AB91"
         app:itemTextColor="#56AB91"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
