@@ -24,6 +24,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/bg_field"
             android:inputType="textPassword"
+            android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz1234567890"
             android:textSize="12dp" />
     </com.google.android.material.textfield.TextInputLayout>
 
