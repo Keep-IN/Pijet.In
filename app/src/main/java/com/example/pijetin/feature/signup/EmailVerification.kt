@@ -10,6 +10,7 @@ import com.example.pijetin.OnBoarding
 import com.example.pijetin.R
 import com.example.pijetin.databinding.ActivityEmailVerificationBinding
 import com.example.pijetin.databinding.ActivitySignUpBinding
+import io.bitfactory.pincodelayout.PinCodeActions
 
 class EmailVerification : AppCompatActivity() {
     private lateinit var  binding: ActivityEmailVerificationBinding
@@ -42,6 +43,20 @@ class EmailVerification : AppCompatActivity() {
         timer.cancel()
         }
 
+    private val callback: PinCodeActions = object : PinCodeActions {
+        override fun onPinEntered(pin: String) {
+            onSucces()
+        }
+
+        override fun onPinCleared() {
+            // Called when the pin is cleared/empty
+        }
+
+        override fun onPinFilled() {
+            // Called when the pin is entered and the View looses focus
+        }
+    }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityEmailVerificationBinding.inflate(layoutInflater)
@@ -51,6 +66,10 @@ class EmailVerification : AppCompatActivity() {
         binding.btnVerif.setOnClickListener {
             startActivity(Intent(this, OnBoarding::class.java ))
         }
+    }
+
+    fun onSucces(){
+        startActivity(Intent(this, EmailVerification::class.java))
     }
 
 }
