@@ -43,7 +43,7 @@ class HistoryListAdapter: RecyclerView.Adapter<HistoryListAdapter.ViewHolder>()
                 binding.tvStatusHistory.setTextColor(Color.parseColor("#85B804"))
             }
             with(binding){
-                tvIdPesananHistory.text = "Id pesnan : ${item.id}"
+                tvIdPesananHistory.text = "Id pesanan : ${item.id}"
                 tvPaketHistory.text = item.title
                 tvDateHistory.text = item.date
                 tvStatusHistory.text = item.status
