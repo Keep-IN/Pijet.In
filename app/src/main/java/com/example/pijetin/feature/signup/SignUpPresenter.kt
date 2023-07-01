@@ -13,24 +13,24 @@ class SignUpPresenter (
        this.view
    }
     fun validateEmail(email: String): Boolean {
-        val isEmailValid = email.contains("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}\$".toRegex())
+        isEmailValid = email.contains("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}\$".toRegex())
         if (!isEmailValid){
-            view?.onError(1,"Format email tidak sesuai")
+            view.onError(1,"Format email tidak sesuai")
         } else {
-            view?.onErrorSuccess(1, "")
+            view.onErrorSuccess(1, "")
         }
         return isEmailValid
     }
 
     fun emailAvailable (email : String) : Boolean {
         isEmailAvailable = email == "keping@gmail.com"
-        if (email == "keping@gmail.com") {
+        if (isEmailAvailable) {
             view.onErrorAvailable(8, "Email Sudah Dipakai")
         }
         return isEmailAvailable
     }
     fun validatePassword (password: String): Boolean {
-        val isPasswordValid = password.contains ("^(?=.*[a-zA-Z])(?=.*\\d).{8,}\$".toRegex())
+        isPasswordValid = password.contains ("^(?=.*[a-zA-Z])(?=.*\\d).{8,}\$".toRegex())
         if (isPasswordValid) {
             view.onErrorSuccess(2, "")
         } else {
@@ -55,6 +55,15 @@ class SignUpPresenter (
             view.onError(5,"Password tidak sama")
         }
         return isValidateRepassword
+    }
+
+    fun validateCredential (){
+        if(isEmailValid && !isEmailAvailable && isPasswordValid && isTelephoneValid && isValidateRepassword){
+            view.onSucces()
+        }
+        else{
+            view.onErrorSignup()
+        }
     }
 
 }

@@ -10,6 +10,7 @@ import com.example.pijetin.OnBoarding
 import com.example.pijetin.R
 import com.example.pijetin.databinding.ActivityEmailVerificationBinding
 import com.example.pijetin.databinding.ActivitySignUpBinding
+import com.example.pijetin.feature.Dashboard.NavBarContainer
 import io.bitfactory.pincodelayout.PinCodeActions
 
 class EmailVerification : AppCompatActivity() {
@@ -69,7 +70,7 @@ class EmailVerification : AppCompatActivity() {
     }
 
     fun onSucces(){
-        startActivity(Intent(this, EmailVerification::class.java))
+        startActivity(Intent(this, ConfirmProfile::class.java))
     }
 
 }

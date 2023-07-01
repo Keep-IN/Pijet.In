@@ -3,6 +3,7 @@ package com.example.pijetin.feature.signup
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.core.widget.doOnTextChanged
 import com.example.pijetin.OnBoarding
 import com.example.pijetin.databinding.ActivitySignUpBinding
@@ -48,6 +49,7 @@ class SignUp : AppCompatActivity(), SignUpContract {
         }
         binding.btnDaftar.setOnClickListener {
             presenter.emailAvailable(binding.tilEmail.editText?.text.toString())
+            presenter.validateCredential()
         }
         presenter = SignUpPresenter(this).apply {
             onAtach(this@SignUp)
@@ -90,7 +92,8 @@ class SignUp : AppCompatActivity(), SignUpContract {
     }
 
     override fun onSucces() {
-        TODO("Not yet implemented")
+        startActivity(Intent(this, ConfirmProfile::class.java))
+        Toast.makeText(this, "Akun telah didaftarkan", Toast.LENGTH_SHORT).show()
     }
 
     override fun onErrorSignup() {
