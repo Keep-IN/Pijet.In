@@ -76,9 +76,10 @@
       android:layout_width="145dp"
       android:layout_height="wrap_content"
       android:layout_marginTop="40dp"
-      android:backgroundTint="#56AB91"
+      android:backgroundTint="@color/bg_button_selector"
       android:fontFamily="@font/poppins_regular"
       android:text="Selanjutnya"
+      android:textColor="#FFFFFF"
       app:layout_constraintEnd_toEndOf="@+id/textView8"
       app:layout_constraintStart_toStartOf="@+id/textView8"
       app:layout_constraintTop_toBottomOf="@+id/textView8" />
