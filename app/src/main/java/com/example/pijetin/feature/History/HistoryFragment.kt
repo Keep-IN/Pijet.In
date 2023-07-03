@@ -15,6 +15,7 @@ import com.example.pijetin.data.adapter.HistoryListAdapter
 import com.example.pijetin.data.model.DataRiwayat
 import com.example.pijetin.data.model.RiwayatItemModel
 import com.example.pijetin.databinding.FragmentHistoryBinding
+import com.example.pijetin.feature.History.Detail.DetilHistory
 import kotlin.math.round
 
 class HistoryFragment : Fragment() {
@@ -103,8 +104,9 @@ class HistoryFragment : Fragment() {
                 tvSelesaiHistory.setTextColor(Color.parseColor("#FFFFFF"))
             }
         }
-
     }
-    private val rvClickListener: (RiwayatItemModel) -> Unit = {
+    private val rvClickListener: (RiwayatItemModel) -> Unit =
+        { item ->
+            startActivity(Intent(activity, DetilHistory::class.java))
     }
 }
