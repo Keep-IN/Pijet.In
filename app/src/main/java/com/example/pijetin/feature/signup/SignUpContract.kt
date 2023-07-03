@@ -6,7 +6,7 @@ interface SignUpContract {
     fun onError(code: Int, message: String)
     fun onSuccesRegister()
     fun onSucces()
-    fun onErrorSignup()
+    fun onErrorSignup(message: String)
     fun onErrorSuccess(code: Int, message: String)
 
     fun onErrorAvailable(code : Int, message: String)

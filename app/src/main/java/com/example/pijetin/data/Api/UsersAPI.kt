@@ -5,7 +5,9 @@ import com.example.pijetin.data.Network.ResponseStatus
 import com.example.pijetin.data.Network.mapFailedResponse
 import com.example.pijetin.data.model.User
 import com.example.pijetin.data.model.UserLoginResponse
+import com.example.pijetin.data.model.UserRegisResponse
 import com.squareup.moshi.JsonAdapter
+import com.squareup.moshi.JsonDataException
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.Types
 import okhttp3.Call
@@ -98,6 +100,59 @@ class UsersAPI {
                 )
             }
         })
+    }
+
+    fun addUser(nama: String, noTelp: String, email: String, password: String, onResponse: (ResponseStatus<UserRegisResponse?>) -> Unit){
+        val requestBody = FormBody.Builder()
+            .add("nama", nama)
+            .add("noTelp", noTelp)
+            .add("email", email)
+            .add("password", password)
+            .build()
+        val request = Request.Builder()
+            .url("https://pijat-in-be.onrender.com${usersEndpoint}")
+            .post(requestBody)
+            .build()
+
+        NetworkClient
+            .client.newCall(request).enqueue(object : Callback {
+                override fun onResponse(call: Call, response: Response) {
+                    val responseData = response.body?.string() ?: ""
+                    if (response.isSuccessful) {
+                        try {
+                            val moshi = Moshi.Builder().build()
+                            val adapter: JsonAdapter<UserRegisResponse> = moshi.adapter(UserRegisResponse::class.java)
+                            val user = adapter.fromJson(responseData)
+                            onResponse.invoke(
+                                ResponseStatus.Success(
+                                    data = user,
+                                    method = "POST",
+                                    status = true
+                                )
+                            )
+                        } catch (e: JsonDataException) {
+                            onResponse.invoke(
+                                ResponseStatus.Failed(
+                                    code = response.code,
+                                    message = "Error parsing response: ${e.message}",
+                                    throwable = e
+                                )
+                            )
+                        }
+                    }
+                    response.body?.close()
+                }
+
+                override fun onFailure(call: Call, e: IOException) {
+                    onResponse.invoke(
+                        ResponseStatus.Failed(
+                            code = -1,
+                            message = e.message.toString(),
+                            throwable = e
+                        )
+                    )
+                }
+            })
     }
 
     fun getError(onResponse: (ResponseStatus<Nothing>) -> Unit) {
