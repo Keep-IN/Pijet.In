@@ -7,6 +7,7 @@ import android.os.Handler
 import android.os.Looper
 import android.view.WindowManager
 import com.example.pijetin.databinding.ActivityMainBinding
+import com.example.pijetin.feature.OnBoarding.OnBoarding
 
 class MainActivity : AppCompatActivity() {
     private  lateinit var binding: ActivityMainBinding

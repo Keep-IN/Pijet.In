@@ -4,12 +4,8 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
-import android.os.Handler
-import android.os.SystemClock
-import com.example.pijetin.OnBoarding
-import com.example.pijetin.R
+import com.example.pijetin.feature.OnBoarding.OnBoarding
 import com.example.pijetin.databinding.ActivityEmailVerificationBinding
-import com.example.pijetin.databinding.ActivitySignUpBinding
 import io.bitfactory.pincodelayout.PinCodeActions
 
 class EmailVerification : AppCompatActivity() {

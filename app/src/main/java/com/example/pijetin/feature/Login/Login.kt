@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.core.widget.doOnTextChanged
-import com.example.pijetin.OnBoarding
+import com.example.pijetin.data.Api.UsersAPI
 import com.example.pijetin.databinding.ActivityLoginBinding
 import com.example.pijetin.feature.Dashboard.NavBarContainer
 import com.example.pijetin.feature.ForgetPass.ForgetPassword
@@ -29,7 +29,7 @@ class Login : AppCompatActivity(), LoginContract {
 
         binding.btnMasukLogin.isEnabled = false
 
-        presenter = LoginPresenter(this).apply{
+        presenter = LoginPresenter(this, UsersAPI()).apply{
             onAttach(this@Login)
         }
 
@@ -45,7 +45,7 @@ class Login : AppCompatActivity(), LoginContract {
 
         binding.btnMasukLogin.setOnClickListener{
             // cek eror button masuk
-            presenter.validateCredential(binding.tilEmailLogin.editText?.text.toString(),
+            presenter.loginUser(binding.tilEmailLogin.editText?.text.toString(),
                 binding.tilPwLogin.editText?.text.toString())
         }
     }
@@ -81,11 +81,11 @@ class Login : AppCompatActivity(), LoginContract {
     override fun onSuccesLogin() {
         //fungsi pindah login ke dashboard + allert
         startActivity(Intent(this, NavBarContainer::class.java))
-        Toast.makeText(this, "login berhasil", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, "Login berhasil", Toast.LENGTH_SHORT).show()
     }
 
     override fun onErrorLogin(code: Int, message: String) {
-        TODO("Not yet implemented")
+        Toast.makeText(this, "Login gagal", Toast.LENGTH_SHORT).show()
     }
 
     override fun onErrorFalse(code: Int, message: String) {

@@ -4,7 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.core.widget.doOnTextChanged
-import com.example.pijetin.OnBoarding
+import com.example.pijetin.feature.OnBoarding.OnBoarding
 import com.example.pijetin.databinding.ActivitySignUpBinding
 import com.example.pijetin.feature.Login.Login
 
