@@ -36,7 +36,7 @@
             android:name=".feature.Login.Login"
             android:exported="false" />
         <activity
-            android:name=".OnBoarding"
+            android:name=".feature.OnBoarding.OnBoarding"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

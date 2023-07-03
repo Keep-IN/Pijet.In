@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.core.widget.doOnTextChanged
-import com.example.pijetin.OnBoarding
 import com.example.pijetin.databinding.ActivityLoginBinding
 import com.example.pijetin.feature.Dashboard.NavBarContainer
 import com.example.pijetin.feature.ForgetPass.ForgetPassword
