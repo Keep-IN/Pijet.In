@@ -35,22 +35,26 @@ class HistoryListAdapter: RecyclerView.Adapter<HistoryListAdapter.ViewHolder>()
 
     inner class ViewHolder(private val binding: HistoryListViewBinding): RecyclerView.ViewHolder(binding.root) {
         fun setData(item: RiwayatItemModel, listener: ((RiwayatItemModel) -> Unit)?){
-            if(item.status == "Dijadwalkan") {
-                binding.tvStatusHistory.setTextColor(Color.parseColor("#358F80"))
-            } else if(item.status == "Dibatalkan") {
-                binding.tvStatusHistory.setTextColor(Color.parseColor("#E21F30"))
-            } else if(item.status == "Selesai") {
-                binding.tvStatusHistory.setTextColor(Color.parseColor("#85B804"))
+            when (item.status) {
+                "Dijadwalkan" -> {
+                    binding.tvStatusHistory.setTextColor(Color.parseColor("#358F80"))
+                }
+                "Dibatalkan" -> {
+                    binding.tvStatusHistory.setTextColor(Color.parseColor("#E21F30"))
+                }
+                "Selesai" -> {
+                    binding.tvStatusHistory.setTextColor(Color.parseColor("#85B804"))
+                }
+            }
+            binding.root.setOnClickListener{
+                listener?.invoke(item)
             }
             with(binding){
-                tvIdPesananHistory.text = "Id pesnan : ${item.id}"
+                tvIdPesananHistory.text = "Id pesanan : ${item.id}"
                 tvPaketHistory.text = item.title
                 tvDateHistory.text = item.date
                 tvStatusHistory.text = item.status
                 tvTerapisHistory.text = item.terapis
-                root.setOnClickListener {
-                    listener?.invoke(item)
-                }
             }
         }
     }
