@@ -3,7 +3,9 @@ package com.example.pijetin.feature.signup
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.core.widget.doOnTextChanged
+import com.example.pijetin.data.Api.UsersAPI
 import com.example.pijetin.feature.OnBoarding.OnBoarding
 import com.example.pijetin.databinding.ActivitySignUpBinding
 import com.example.pijetin.feature.Login.Login
@@ -15,6 +17,10 @@ class SignUp : AppCompatActivity(), SignUpContract {
         binding = ActivitySignUpBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+
+        presenter = SignUpPresenter(this, UsersAPI()).apply {
+            onAtach(this@SignUp)
+        }
 
         binding.imPiw1.setOnClickListener {
             startActivity(Intent(this, OnBoarding::class.java ))
@@ -46,11 +52,12 @@ class SignUp : AppCompatActivity(), SignUpContract {
             validateInput()
             presenter.validateRepassword(binding.tilPassword.editText?.text.toString(),binding.tilRePassword.editText?.text.toString())
         }
+
         binding.btnDaftar.setOnClickListener {
-            presenter.emailAvailable(binding.tilEmail.editText?.text.toString())
-        }
-        presenter = SignUpPresenter(this).apply {
-            onAtach(this@SignUp)
+            presenter.regisUser(binding.tilUsername.editText?.text.toString(),
+                binding.tilTelephone.editText?.text.toString(),
+                binding.tilEmail.editText?.text.toString(),
+                binding.tilPassword.editText?.text.toString())
         }
     }
 
@@ -86,17 +93,17 @@ class SignUp : AppCompatActivity(), SignUpContract {
     }
 
     override fun onSuccesRegister() {
-        TODO("Not yet implemented")
+        startActivity(Intent(this, Login::class.java))
+        Toast.makeText(this, "Akun berhasil terdaftar", Toast.LENGTH_SHORT).show()
     }
 
     override fun onSucces() {
         TODO("Not yet implemented")
     }
 
-    override fun onErrorSignup() {
-        TODO("Not yet implemented")
+    override fun onErrorSignup(message: String) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
-
     override fun onErrorSuccess(code: Int, message: String) {
         when(code) {
             2 ->binding.tilPassword.isErrorEnabled =false

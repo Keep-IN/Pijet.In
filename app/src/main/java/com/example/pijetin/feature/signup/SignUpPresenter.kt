@@ -1,8 +1,22 @@
 package com.example.pijetin.feature.signup
 
+import com.example.pijetin.data.Api.UsersAPI
+import com.example.pijetin.data.Network.ResponseStatus
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.launch
+import kotlin.coroutines.CoroutineContext
+
 class SignUpPresenter (
-    private val view: SignUpContract
+    private val view: SignUpContract,
+    private val api: UsersAPI,
+    uiContext: CoroutineContext = Dispatchers.Main
         ) {
+    private val supervisorJob: Job = SupervisorJob()
+    private val scope = CoroutineScope(supervisorJob + uiContext)
+
     private var isEmailValid = false
     private var isPasswordValid = false
     private var isTelephoneValid = false
@@ -15,9 +29,9 @@ class SignUpPresenter (
     fun validateEmail(email: String): Boolean {
         val isEmailValid = email.contains("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}\$".toRegex())
         if (!isEmailValid){
-            view?.onError(1,"Format email tidak sesuai")
+            view.onError(1,"Format email tidak sesuai")
         } else {
-            view?.onErrorSuccess(1, "")
+            view.onErrorSuccess(1, "")
         }
         return isEmailValid
     }
@@ -55,6 +69,17 @@ class SignUpPresenter (
             view.onError(5,"Password tidak sama")
         }
         return isValidateRepassword
+    }
+
+    fun regisUser(nama: String, noTelp: String, email: String, password: String){
+        api.addUser(nama, noTelp, email, password){
+            scope.launch {
+                when(it){
+                    is ResponseStatus.Success -> view.onSuccesRegister()
+                    is ResponseStatus.Failed -> view.onErrorSignup(it.message)
+                }
+            }
+        }
     }
 
 }
