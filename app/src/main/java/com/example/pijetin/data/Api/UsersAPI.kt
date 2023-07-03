@@ -59,7 +59,7 @@ class UsersAPI {
             })
     }
 
-    fun userLogin(email: String, password: String, onResponse: (ResponseStatus<User?>) -> Unit) {
+    fun userLogin(email: String, password: String, onResponse: (ResponseStatus<UserLogin?>) -> Unit) {
         val requestBody = FormBody.Builder()
             .add("email", email)
             .add("password", password)
@@ -75,7 +75,7 @@ class UsersAPI {
                 if (response.isSuccessful) {
                     val responseData = response.body?.string() ?: ""
                     val moshi = Moshi.Builder().build()
-                    val adapter: JsonAdapter<User> = moshi.adapter(User::class.java)
+                    val adapter: JsonAdapter<UserLogin> = moshi.adapter(UserLogin::class.java)
                     val user = adapter.fromJson(responseData)
                     onResponse.invoke(
                         ResponseStatus.Success(
