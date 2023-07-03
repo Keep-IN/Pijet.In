@@ -1,10 +1,23 @@
 package com.example.pijetin.feature.Login
 
 import android.provider.ContactsContract.CommonDataKinds.Email
+import com.example.pijetin.data.Api.UsersAPI
+import com.example.pijetin.data.Network.ResponseStatus
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.launch
+import kotlin.coroutines.CoroutineContext
 
 class LoginPresenter(
     private val view: LoginContract,
+    private val api: UsersAPI,
+    uiContext: CoroutineContext = Dispatchers.Main
 ) {
+    private val supervisorJob: Job = SupervisorJob()
+    private val scope = CoroutineScope(supervisorJob + uiContext)
+
     private var isEmailValid = false
     private var isPasswordValid = false
     private var isEmailCorrect = false
@@ -37,26 +50,15 @@ class LoginPresenter(
         }
         return isPasswordValid
     }
-    fun validateCredential(email: String, password: String){
-        //dummy email + password
-        isEmailCorrect= email == "keping@gmail.com"
-        isPasswordCorrect = password == "kudabalapliar"
 
-        when(isEmailCorrect){
-            //fungsi cek email
-            true -> view.onErrorEmpty(7)
-            false -> view.onErrorFalse(5, "Email anda tidak terdaftar!")
-        }
-
-        when(isPasswordCorrect){
-            //fungsi cek password
-            true -> view.onErrorEmpty(8)
-            false -> view.onErrorFalse(6, "Password salah!")
-        }
-
-        //testing email+password bener atau salah
-        if(isEmailCorrect && isPasswordCorrect) {
-            view.onSuccesLogin()
+    fun loginUser(email: String, password: String){
+        api.userLogin(email, password) {
+            scope.launch {
+                when(it){
+                    is ResponseStatus.Success -> view.onSuccesLogin()
+                    is ResponseStatus.Failed -> view.onErrorLogin(99, it.message)
+                }
+            }
         }
     }
 }

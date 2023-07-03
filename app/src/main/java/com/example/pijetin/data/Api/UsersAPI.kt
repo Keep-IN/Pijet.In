@@ -2,12 +2,9 @@ package com.example.pijetin.data.Api
 
 import com.example.pijetin.data.Network.NetworkClient
 import com.example.pijetin.data.Network.ResponseStatus
-import com.example.pijetin.data.Network.deserializeJson
 import com.example.pijetin.data.Network.mapFailedResponse
-import com.example.pijetin.data.Network.serialized
 import com.example.pijetin.data.model.User
-import com.example.pijetin.data.model.UserList
-import com.example.pijetin.data.model.UserLogin
+import com.example.pijetin.data.model.UserLoginResponse
 import com.squareup.moshi.JsonAdapter
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.Types
@@ -16,7 +13,6 @@ import okhttp3.Callback
 import okhttp3.FormBody
 import okhttp3.Request
 import okhttp3.Response
-import org.json.JSONArray
 import java.io.IOException
 
 class UsersAPI {
@@ -59,7 +55,7 @@ class UsersAPI {
             })
     }
 
-    fun userLogin(email: String, password: String, onResponse: (ResponseStatus<UserLogin?>) -> Unit) {
+    fun userLogin(email: String, password: String, onResponse: (ResponseStatus<UserLoginResponse?>) -> Unit) {
         val requestBody = FormBody.Builder()
             .add("email", email)
             .add("password", password)
@@ -75,7 +71,7 @@ class UsersAPI {
                 if (response.isSuccessful) {
                     val responseData = response.body?.string() ?: ""
                     val moshi = Moshi.Builder().build()
-                    val adapter: JsonAdapter<UserLogin> = moshi.adapter(UserLogin::class.java)
+                    val adapter: JsonAdapter<UserLoginResponse> = moshi.adapter(UserLoginResponse::class.java)
                     val user = adapter.fromJson(responseData)
                     onResponse.invoke(
                         ResponseStatus.Success(
