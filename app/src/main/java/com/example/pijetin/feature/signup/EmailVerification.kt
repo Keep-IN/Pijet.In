@@ -64,7 +64,7 @@ class EmailVerification : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.btnVerif.setOnClickListener {
-            startActivity(Intent(this, OnBoarding::class.java ))
+            startActivity(Intent(this, ConfirmProfile::class.java ))
         }
     }
 
