@@ -10,5 +10,5 @@ data class UserLoginResponse(
     val uuid: String,
     val email: String,
     val nama: String,
-    val imageUrl: String
+    val imageUrl: String?
 ): Parcelable
