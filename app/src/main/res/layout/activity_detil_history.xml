@@ -197,7 +197,7 @@
                         android:layout_marginStart="20dp"
                         android:layout_marginTop="10dp"
                         android:fontFamily="@font/poppins_semibold"
-                        android:text="Jumlah pemesan"
+                        android:text="Jumlah Pemesan"
                         android:textSize="14dp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/tvAlamatResi" />
