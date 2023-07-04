@@ -47,12 +47,15 @@
 
             <TextView
                 android:id="@+id/tPiw8"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="5dp"
+                android:layout_height="19dp"
+                android:layout_marginStart="2dp"
+                android:layout_marginBottom="2dp"
                 android:text="*"
                 android:textColor="#FF0000"
+                app:layout_constraintBottom_toBottomOf="@+id/tPiw7"
                 app:layout_constraintStart_toEndOf="@+id/tPiw7"
-                app:layout_constraintTop_toBottomOf="@+id/tilTelephone" />
+                app:layout_constraintTop_toTopOf="@+id/tPiw7" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/tilEmail"
@@ -87,9 +90,11 @@
                 android:id="@+id/tPiw13"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="3dp"
+                android:layout_marginStart="2dp"
+                android:layout_marginBottom="2dp"
                 android:text="*"
                 android:textColor="#FF0000"
+                app:layout_constraintBottom_toBottomOf="@+id/tPiw12"
                 app:layout_constraintStart_toEndOf="@+id/tPiw12"
                 app:layout_constraintTop_toTopOf="@+id/tPiw12" />
 
@@ -98,11 +103,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="2dp"
-                android:layout_marginTop="25dp"
+                android:layout_marginBottom="2dp"
                 android:text="*"
                 android:textColor="#FD0000"
+                app:layout_constraintBottom_toBottomOf="@+id/tPiw3"
                 app:layout_constraintStart_toEndOf="@+id/tPiw3"
-                app:layout_constraintTop_toBottomOf="@+id/tPiw2" />
+                app:layout_constraintTop_toTopOf="@+id/tPiw3" />
 
             <ImageView
                 android:id="@+id/imPiw1"
@@ -212,10 +218,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="2dp"
+                android:layout_marginBottom="2dp"
                 android:text="*"
                 android:textColor="#FF0000"
+                app:layout_constraintBottom_toBottomOf="@+id/tPiw5"
                 app:layout_constraintStart_toEndOf="@+id/tPiw5"
-                app:layout_constraintTop_toBottomOf="@+id/tilUsername" />
+                app:layout_constraintTop_toTopOf="@+id/tPiw5" />
 
             <TextView
                 android:id="@+id/tPiw2"
@@ -269,7 +277,7 @@
                 android:layout_width="145dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="133dp"
-                android:layout_marginTop="45dp"
+                android:layout_marginTop="50dp"
                 android:layout_marginEnd="133dp"
                 android:backgroundTint="@color/bg_button_selector"
                 android:enabled="false"
@@ -284,10 +292,11 @@
                 android:id="@+id/tPiw12"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
                 android:fontFamily="@font/poppins_regular"
                 android:text="Ketik ulang kata sandi anda"
-                android:textSize="14dp"
 
+                android:textSize="14dp"
                 app:layout_constraintBottom_toTopOf="@+id/tilRePassword"
                 app:layout_constraintStart_toStartOf="@+id/tilRePassword" />
 
@@ -295,11 +304,39 @@
                 android:id="@+id/tPiw10"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="3dp"
+                android:layout_marginStart="2dp"
+                android:layout_marginBottom="2dp"
                 android:text="*"
                 android:textColor="#FF0000"
+                app:layout_constraintBottom_toBottomOf="@+id/tPiw9"
                 app:layout_constraintStart_toEndOf="@+id/tPiw9"
-                app:layout_constraintTop_toBottomOf="@+id/tilEmail" />
+                app:layout_constraintTop_toTopOf="@+id/tPiw9" />
+
+            <ProgressBar
+                android:id="@+id/pbLoadingSignup"
+                style="?android:attr/progressBarStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:elevation="2dp"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <FrameLayout
+                android:id="@+id/bgLoadingSignup"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:background="#4F000000"
+                android:elevation="1dp"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+            </FrameLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 
