@@ -91,6 +91,7 @@ class Login : AppCompatActivity(), LoginContract {
         if (user != null) {
             DataUser.nama = user.nama
             DataUser.email = user.email
+            DataUser.imageUrl = user.imageUrl
         }
         startActivity(Intent(this, NavBarContainer::class.java))
         Toast.makeText(this, "Login berhasil", Toast.LENGTH_SHORT).show()
