@@ -3,6 +3,7 @@ package com.example.pijetin.feature.signup
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.core.widget.doOnTextChanged
 import com.example.pijetin.data.Api.UsersAPI
@@ -54,10 +55,19 @@ class SignUp : AppCompatActivity(), SignUpContract {
         }
 
         binding.btnDaftar.setOnClickListener {
-            presenter.regisUser(binding.tilUsername.editText?.text.toString(),
-                binding.tilTelephone.editText?.text.toString(),
-                binding.tilEmail.editText?.text.toString(),
-                binding.tilPassword.editText?.text.toString())
+            if (!binding.tilEmail.isErrorEnabled
+                && !binding.tilPassword.isErrorEnabled
+                && !binding.tilTelephone.isErrorEnabled
+                && !binding.tilRePassword.isErrorEnabled)
+            {
+                onLoading()
+                presenter.regisUser(binding.tilUsername.editText?.text.toString(),
+                    binding.tilTelephone.editText?.text.toString(),
+                    binding.tilEmail.editText?.text.toString(),
+                    binding.tilPassword.editText?.text.toString())
+            } else {
+                Toast.makeText(this, "Masukkan data dengan format yang sesuai", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 
@@ -76,11 +86,13 @@ class SignUp : AppCompatActivity(), SignUpContract {
                 binding.tilRePassword.editText?.text.toString().isNotBlank()
     }
     override fun onLoading() {
-        TODO("Not yet implemented")
+        binding.bgLoadingSignup.visibility = View.VISIBLE
+        binding.pbLoadingSignup.visibility = View.VISIBLE
     }
 
     override fun onFinishedLoading() {
-        TODO("Not yet implemented")
+        binding.bgLoadingSignup.visibility = View.GONE
+        binding.pbLoadingSignup.visibility = View.GONE
     }
 
     override fun onError(code: Int, message: String) {
@@ -95,6 +107,7 @@ class SignUp : AppCompatActivity(), SignUpContract {
     override fun onSuccesRegister() {
         startActivity(Intent(this, Login::class.java))
         Toast.makeText(this, "Akun berhasil terdaftar", Toast.LENGTH_SHORT).show()
+        onFinishedLoading()
     }
 
     override fun onSucces() {
@@ -103,13 +116,14 @@ class SignUp : AppCompatActivity(), SignUpContract {
 
     override fun onErrorSignup(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+        onFinishedLoading()
     }
     override fun onErrorSuccess(code: Int, message: String) {
         when(code) {
             2 ->binding.tilPassword.isErrorEnabled =false
-            6 ->binding.tilTelephone.error =""
-            1 ->binding.tilEmail.error = ""
-            7 ->binding.tilRePassword.error = ""
+            6 ->binding.tilTelephone.isErrorEnabled =false
+            1 ->binding.tilEmail.isErrorEnabled =false
+            7 ->binding.tilRePassword.isErrorEnabled =false
         }
     }
 }

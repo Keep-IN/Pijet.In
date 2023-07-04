@@ -46,6 +46,6 @@ class OnBoarding : AppCompatActivity(), OnBoardContract {
     override fun onErrorUserList(msg: String) {
         Handler(Looper.getMainLooper()).postDelayed({
             Toast.makeText(this@OnBoarding, msg, Toast.LENGTH_SHORT).show()
-        }, 3000)
+        }, 1000)
     }
 }

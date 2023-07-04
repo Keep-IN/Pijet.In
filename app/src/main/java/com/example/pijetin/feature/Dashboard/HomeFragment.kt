@@ -11,6 +11,7 @@ import com.example.pijetin.data.adapter.RecentAdapter
 import com.example.pijetin.data.adapter.SpotlightListAdapter
 import com.example.pijetin.data.model.DataRiwayat
 import com.example.pijetin.data.model.DataSpotlight
+import com.example.pijetin.data.model.DataUser
 import com.example.pijetin.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
@@ -34,6 +35,8 @@ class HomeFragment : Fragment() {
         adapterSpotlight.submitList(DataSpotlight.spotlightList)
         binding.rvSpotlight.adapter = adapterSpotlight
         binding.rvSpotlight.layoutManager = layoutManagerHorizontal
+
+        binding.tvUsername.text = DataUser.nama
 
         adapterRecent.submitList(DataRiwayat.riwayatList)
         binding.rvRecent.adapter = adapterRecent

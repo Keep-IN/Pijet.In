@@ -1,6 +1,5 @@
 package com.example.pijetin.feature.Login
 
-import android.provider.ContactsContract.CommonDataKinds.Email
 import com.example.pijetin.data.Api.UsersAPI
 import com.example.pijetin.data.Network.ResponseStatus
 import kotlinx.coroutines.CoroutineScope
@@ -55,7 +54,7 @@ class LoginPresenter(
         api.userLogin(email, password) {
             scope.launch {
                 when(it){
-                    is ResponseStatus.Success -> view.onSuccesLogin()
+                    is ResponseStatus.Success -> view.onSuccesLogin(it.data)
                     is ResponseStatus.Failed -> view.onErrorLogin(99, it.message)
                 }
             }
