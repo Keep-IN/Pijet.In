@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.bumptech.glide.Glide
 import com.example.pijetin.R
 import com.example.pijetin.data.adapter.RecentAdapter
 import com.example.pijetin.data.adapter.SpotlightListAdapter
@@ -41,6 +42,11 @@ class HomeFragment : Fragment() {
         adapterRecent.submitList(DataRiwayat.riwayatList)
         binding.rvRecent.adapter = adapterRecent
         binding.rvRecent.layoutManager = layoutManager
+
+        Glide
+            .with(this)
+            .load(DataUser.imageUrl)
+            .into(binding.ivProfile)
 
     }
 
