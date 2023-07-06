@@ -4,10 +4,13 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
+import androidx.core.view.isNotEmpty
 import com.example.pijetin.R
 import com.example.pijetin.databinding.ActivityForgetPasswordBinding
 import com.example.pijetin.databinding.ActivityOtpForgetBinding
+import com.example.pijetin.feature.ForgetPass.NewPass.NewPassword
 import com.example.pijetin.feature.Login.Login
+import io.bitfactory.pincodelayout.PinCodeActions
 
 class OtpForget : AppCompatActivity() {
     private lateinit var binding: ActivityOtpForgetBinding
@@ -19,6 +22,8 @@ class OtpForget : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
+        binding.pinOtpForget.setCallback(callback)
+
         binding.ivBackOtpForget.setOnClickListener {
             onBackPressedDispatcher.onBackPressed()
         }
@@ -29,6 +34,31 @@ class OtpForget : AppCompatActivity() {
         }
 
         binding.btnSelanjutnyaOtpForget.isEnabled = false
+
+        binding.btnSelanjutnyaOtpForget.setOnClickListener{
+            startActivity(Intent(this,NewPassword::class.java))
+        }
+    }
+
+    private val callback: PinCodeActions = object : PinCodeActions {
+        override fun onPinEntered(pin: String) {
+            // Called when the pin is fully entered. Returns the pin
+            onSuccesPin()
+        }
+
+        override fun onPinCleared() {
+            // Called when the pin is cleared/empty
+            binding.btnSelanjutnyaOtpForget.isEnabled = false
+        }
+
+        override fun onPinFilled() {
+            // Called when the pin is entered and the View looses focus
+
+        }
+    }
+
+    private fun onSuccesPin(){
+        binding.btnSelanjutnyaOtpForget.isEnabled = binding.pinOtpForget.isNotEmpty()
     }
 
     override fun onStart() {
