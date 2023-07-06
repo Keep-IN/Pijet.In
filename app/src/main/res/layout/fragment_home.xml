@@ -90,6 +90,7 @@
                         android:orientation="horizontal">
 
                         <LinearLayout
+                            android:id="@+id/btnService01"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
@@ -116,6 +117,7 @@
                         </LinearLayout>
 
                         <LinearLayout
+                            android:id="@+id/btnService02"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
@@ -142,6 +144,7 @@
                         </LinearLayout>
 
                         <LinearLayout
+                            android:id="@+id/btnService03"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
@@ -175,6 +178,7 @@
                         android:orientation="horizontal">
 
                         <LinearLayout
+                            android:id="@+id/btnService04"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
@@ -200,6 +204,7 @@
                         </LinearLayout>
 
                         <LinearLayout
+                            android:id="@+id/btnService05"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
@@ -225,6 +230,7 @@
                         </LinearLayout>
 
                         <LinearLayout
+                            android:id="@+id/btnService06"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_weight="1"

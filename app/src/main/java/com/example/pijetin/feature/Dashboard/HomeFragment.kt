@@ -1,5 +1,6 @@
 package com.example.pijetin.feature.Dashboard
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -7,7 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
-import com.example.pijetin.R
+import com.example.pijetin.feature.Services.ServicePage
 import com.example.pijetin.data.adapter.RecentAdapter
 import com.example.pijetin.data.adapter.SpotlightListAdapter
 import com.example.pijetin.data.model.DataRiwayat
@@ -42,6 +43,40 @@ class HomeFragment : Fragment() {
         adapterRecent.submitList(DataRiwayat.riwayatList)
         binding.rvRecent.adapter = adapterRecent
         binding.rvRecent.layoutManager = layoutManager
+
+        //Flow untuk tombol di setiap layanan
+        with(binding){
+            btnService01.setOnClickListener {
+                startActivity(Intent(activity, ServicePage::class.java).apply {
+                    putExtra("service", "1")
+                })
+            }
+            btnService02.setOnClickListener {
+                startActivity(Intent(activity, ServicePage::class.java).apply {
+                    putExtra("service", "2")
+                })
+            }
+            btnService03.setOnClickListener {
+                startActivity(Intent(activity, ServicePage::class.java).apply {
+                    putExtra("service", "3")
+                })
+            }
+            btnService04.setOnClickListener {
+                startActivity(Intent(activity, ServicePage::class.java).apply {
+                    putExtra("service", "4")
+                })
+            }
+            btnService05.setOnClickListener {
+                startActivity(Intent(activity, ServicePage::class.java).apply {
+                    putExtra("service", "5")
+                })
+            }
+            btnService06.setOnClickListener {
+                startActivity(Intent(activity, ServicePage::class.java).apply {
+                    putExtra("service", "6")
+                })
+            }
+        }
 
         Glide
             .with(this)
