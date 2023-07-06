@@ -60,8 +60,9 @@
 
                 <ImageView
                     android:id="@+id/ivProfile"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
                     tools:src="@tools:sample/avatars" />
             </androidx.cardview.widget.CardView>
 
@@ -89,6 +90,7 @@
                         android:orientation="horizontal">
 
                         <LinearLayout
+                            android:id="@+id/btnService01"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
@@ -115,6 +117,7 @@
                         </LinearLayout>
 
                         <LinearLayout
+                            android:id="@+id/btnService02"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
@@ -141,6 +144,7 @@
                         </LinearLayout>
 
                         <LinearLayout
+                            android:id="@+id/btnService03"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
@@ -174,6 +178,7 @@
                         android:orientation="horizontal">
 
                         <LinearLayout
+                            android:id="@+id/btnService04"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
@@ -199,6 +204,7 @@
                         </LinearLayout>
 
                         <LinearLayout
+                            android:id="@+id/btnService05"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
@@ -224,6 +230,7 @@
                         </LinearLayout>
 
                         <LinearLayout
+                            android:id="@+id/btnService06"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
@@ -231,8 +238,9 @@
 
                             <ImageView
                                 android:id="@+id/imageView19"
-                                android:layout_width="match_parent"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:layout_gravity="bottom|center"
                                 android:layout_weight="1"
                                 android:src="@drawable/ic_service_06" />
 

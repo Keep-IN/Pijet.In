@@ -144,8 +144,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
                 android:fontFamily="@font/poppins_regular"
-                android:text="Masuk"
-                android:textColor="#FF0000"
+                android:text="MASUK"
+                android:textColor="#56AB91"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/tPiw15"
                 app:layout_constraintStart_toStartOf="@+id/tPiw15"
@@ -161,6 +161,7 @@
                 app:layout_constraintEnd_toEndOf="@+id/tilEmail"
                 app:layout_constraintStart_toStartOf="@+id/tilEmail"
                 app:layout_constraintTop_toBottomOf="@+id/tilEmail"
+                app:passwordToggleTint="@color/primary"
                 app:passwordToggleEnabled="true">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -180,6 +181,7 @@
                 app:layout_constraintEnd_toEndOf="@+id/tilPassword"
                 app:layout_constraintStart_toStartOf="@+id/tilPassword"
                 app:layout_constraintTop_toBottomOf="@+id/tilPassword"
+                app:passwordToggleTint="@color/primary"
                 app:passwordToggleEnabled="true">
 
                 <com.google.android.material.textfield.TextInputEditText

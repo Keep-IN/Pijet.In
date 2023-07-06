@@ -9,5 +9,6 @@ import kotlinx.parcelize.Parcelize
 data class UserLoginResponse(
     val uuid: String,
     val email: String,
-    val nama: String
+    val nama: String,
+    val imageUrl: String?
 ): Parcelable
