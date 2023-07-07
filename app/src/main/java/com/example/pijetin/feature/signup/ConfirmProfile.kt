@@ -7,6 +7,7 @@ import com.example.pijetin.R
 import com.example.pijetin.databinding.ActivityConfirmProfileBinding
 import com.example.pijetin.databinding.ActivityEmailVerificationBinding
 import com.example.pijetin.feature.Dashboard.NavBarContainer
+import com.example.pijetin.feature.Lengkapi.LengkapDataDiri
 
 class ConfirmProfile : AppCompatActivity() {
     private lateinit var  binding: ActivityConfirmProfileBinding
@@ -17,6 +18,10 @@ class ConfirmProfile : AppCompatActivity() {
 
         binding.btnConfirmTolak.setOnClickListener {
             startActivity(Intent(this, NavBarContainer::class.java))
+        }
+
+        binding.btnConfirm2.setOnClickListener {
+            startActivity(Intent(this, LengkapDataDiri::class.java))
         }
     }
 }
