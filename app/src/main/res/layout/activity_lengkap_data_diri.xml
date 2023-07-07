@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    tools:context=".feature.Lengkapi.LengkapDataDiri">
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvHeadLengkapi"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        app:cardBackgroundColor="#67B99A"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="10dp"
+                android:layout_height="17dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="22dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_back" />
+
+            <TextView
+                android:id="@+id/tvHeaderLengkapi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="Lengkapi data diri"
+                android:textColor="#FFFFFF"
+                android:textSize="16dp"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView5"
+                app:layout_constraintStart_toEndOf="@+id/imageView5"
+                app:layout_constraintTop_toTopOf="@+id/imageView5" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/tvJudulLengkapi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="66dp"
+        android:layout_marginTop="19dp"
+        android:layout_marginEnd="66dp"
+        android:fontFamily="@font/poppins_medium"
+        android:text="Isi identitas sesuai dengan data diri KTP anda"
+        android:textSize="14dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cvHeadLengkapi" />
+
+    <TextView
+        android:id="@+id/tvLinkLengkapi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="31dp"
+        android:fontFamily="@font/poppins_regular"
+        android:text="Link Foto KTP "
+        android:textSize="14dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvJudulLengkapi" />
+
+    <TextView
+        android:id="@+id/tvBintangLinkLengkapi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_regular"
+        android:text="*"
+        android:textColor="#E21F30"
+        android:textSize="14dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvLinkLengkapi"
+        app:layout_constraintStart_toEndOf="@+id/tvLinkLengkapi"
+        app:layout_constraintTop_toTopOf="@+id/tvLinkLengkapi" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilLinkLengkapi"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/tvLinkLengkapi"
+        app:layout_constraintTop_toBottomOf="@+id/tvLinkLengkapi">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_field"
+            android:textSize="12dp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/tvNikLengkapi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/poppins_regular"
+        android:text="Nomor NIK KTP "
+        android:textSize="14dp"
+        app:layout_constraintStart_toStartOf="@+id/tilLinkLengkapi"
+        app:layout_constraintTop_toBottomOf="@+id/tilLinkLengkapi" />
+
+    <TextView
+        android:id="@+id/tvBintangNikLengkapi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_regular"
+        android:text="*"
+        android:textColor="#E21F30"
+        android:textSize="14dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvNikLengkapi"
+        app:layout_constraintStart_toEndOf="@+id/tvNikLengkapi"
+        app:layout_constraintTop_toTopOf="@+id/tvNikLengkapi" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilNikLengkapi"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/tvNikLengkapi"
+        app:layout_constraintTop_toBottomOf="@+id/tvNikLengkapi">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_field"
+            android:textSize="12dp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/tvTempatLengkapi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/poppins_regular"
+        android:text="Tempat Lahir "
+        android:textSize="14dp"
+        app:layout_constraintStart_toStartOf="@+id/tilNikLengkapi"
+        app:layout_constraintTop_toBottomOf="@+id/tilNikLengkapi" />
+
+    <TextView
+        android:id="@+id/tvBintangTempatLengkapi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_regular"
+        android:text="*"
+        android:textColor="#E21F30"
+        android:textSize="14dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvTempatLengkapi"
+        app:layout_constraintStart_toEndOf="@+id/tvTempatLengkapi"
+        app:layout_constraintTop_toTopOf="@+id/tvTempatLengkapi" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilTempatLengkapi"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/tvTempatLengkapi"
+        app:layout_constraintTop_toBottomOf="@+id/tvTempatLengkapi">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_field"
+            android:textSize="12dp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/tvTanggalLengkapi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/poppins_regular"
+        android:text="Tanggal Lahir"
+        android:textSize="14dp"
+        app:layout_constraintStart_toStartOf="@+id/tilTempatLengkapi"
+        app:layout_constraintTop_toBottomOf="@+id/tilTempatLengkapi" />
+
+    <TextView
+        android:id="@+id/tvBintangTanggalLengkapi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_regular"
+        android:text="*"
+        android:textColor="#E21F30"
+        android:textSize="14dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvTanggalLengkapi"
+        app:layout_constraintStart_toEndOf="@+id/tvTanggalLengkapi"
+        app:layout_constraintTop_toTopOf="@+id/tvTanggalLengkapi" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilTanggalLengkapi"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/tvTanggalLengkapi"
+        app:layout_constraintTop_toBottomOf="@+id/tvTanggalLengkapi">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_field"
+            android:textSize="12dp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <CheckBox
+        android:id="@+id/cbOptinLengkapi"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="38dp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tilTanggalLengkapi" />
+
+    <TextView
+        android:id="@+id/tvKonfirmasiLengkapi"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="51dp"
+        android:fontFamily="@font/poppins_regular"
+        android:text="Dengan ini saya menyatakan bahwa data yang saya isi adalah valid apa adanya. Jika saya melanggar
+peraturan yang ada, maka saya siap mengikuti prosedur hukum yang berlaku. *"
+        android:textSize="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/cbOptinLengkapi"
+        app:layout_constraintTop_toBottomOf="@+id/tilTanggalLengkapi" />
+
+<!--    <TextView-->
+<!--        android:id="@+id/textView36"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:fontFamily="@font/poppins_regular"-->
+<!--        android:text="*"-->
+<!--        android:textColor="#FF0000"-->
+<!--        android:textSize="12dp"-->
+<!--        app:layout_constraintBottom_toBottomOf="@+id/tvKonfirmasiLengkapi"-->
+<!--        app:layout_constraintEnd_toEndOf="@+id/tvKonfirmasiLengkapi"-->
+<!--        app:layout_constraintHorizontal_bias="0.17"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/tvKonfirmasiLengkapi" />-->
+
+    <Button
+        android:id="@+id/btnSimpanLengkapi"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:backgroundTint="#56AB91"
+        android:fontFamily="@font/poppins_regular"
+        android:text="Simpan"
+        android:textSize="16dp"
+        app:layout_constraintEnd_toEndOf="@+id/tvKonfirmasiLengkapi"
+        app:layout_constraintStart_toStartOf="@+id/tvKonfirmasiLengkapi"
+        app:layout_constraintTop_toBottomOf="@+id/tvKonfirmasiLengkapi" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
