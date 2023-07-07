@@ -47,6 +47,18 @@ class NetworkClient {
             return request.build()
         }
 
+        fun getWithBearerToken(endpoint: String, token:String, method: METHOD = METHOD.GET, jsonBody: String? = null): Request {
+            val request = Request.Builder()
+                .url("$BASE_URL$endpoint")
+                .header("Authorization", "Bearer $token")
+                .get()
+
+            if (jsonBody != null)
+                request.method(method.name, jsonBody.toRequestBody())
+
+            return request.build()
+        }
+
         fun makeCallApi(endpoint: String, method: METHOD = METHOD.GET, jsonBody: String? = null): Call {
             val request = requestBuilder(endpoint, method, jsonBody)
             return client.newCall(request)

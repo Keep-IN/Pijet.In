@@ -3,6 +3,7 @@ package com.example.pijetin.data.Api
 import com.example.pijetin.data.Network.NetworkClient
 import com.example.pijetin.data.Network.ResponseStatus
 import com.example.pijetin.data.Network.mapFailedResponse
+import com.example.pijetin.data.model.DataToken
 import com.example.pijetin.data.model.User
 import com.example.pijetin.data.model.UserLoginResponse
 import com.example.pijetin.data.model.UserRegisResponse
@@ -152,6 +153,44 @@ class UsersAPI {
                         )
                     )
                 }
+            })
+    }
+
+    fun getUserData(onResponse: (ResponseStatus<User?>) -> Unit){
+        val request = NetworkClient.getWithBearerToken(usersEndpoint,DataToken.token)
+        NetworkClient
+            .client.newCall(request)
+            .enqueue(object : Callback {
+                override fun onResponse(call: Call, response: Response) {
+                    val responseBody = response.body?.string() ?: ""
+                    val moshi = Moshi.Builder().build()
+                    val adapter: JsonAdapter<User> = moshi.adapter(User::class.java)
+                    if(response.isSuccessful){
+                        val user = adapter.fromJson(responseBody)
+                        onResponse.invoke(ResponseStatus.Success(
+                            data = user,
+                            method = "GET",
+                            status = true
+                        ))
+                    }
+                    else {
+                        onResponse.invoke(
+                            mapFailedResponse(response)
+                        )
+                    }
+                    response.body?.close()
+                }
+
+                override fun onFailure(call: Call, e: IOException) {
+                    onResponse.invoke(
+                        ResponseStatus.Failed(
+                            code = -1,
+                            message = e.message.toString(),
+                            throwable = e
+                        )
+                    )
+                }
+
             })
     }
 
