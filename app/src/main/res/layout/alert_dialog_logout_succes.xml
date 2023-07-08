@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="500dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/imageView22"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="75dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="75dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:src="@drawable/img_keluar_akun" />
+
+        <TextView
+            android:id="@+id/textView28"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/poppins_semibold"
+            android:text="Keluar Akun ?"
+            android:textSize="24dp"
+            app:layout_constraintEnd_toEndOf="@+id/imageView22"
+            app:layout_constraintStart_toStartOf="@+id/imageView22"
+            app:layout_constraintTop_toBottomOf="@+id/imageView22" />
+
+        <TextView
+            android:id="@+id/textView29"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="26dp"
+            android:fontFamily="@font/poppins_regular"
+            android:text="Apakah anda yakin ingin keluar ?"
+            android:textSize="20dp"
+            app:layout_constraintEnd_toEndOf="@+id/textView28"
+            app:layout_constraintStart_toStartOf="@+id/textView28"
+            app:layout_constraintTop_toBottomOf="@+id/textView28" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardView5"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="40dp"
+            app:cardBackgroundColor="#FFFFFF"
+            app:cardCornerRadius="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/textView29"
+            app:layout_constraintTop_toBottomOf="@+id/textView29"
+            app:strokeColor="#56AB91"
+            app:strokeWidth="2dp">
+
+            <TextView
+                android:id="@+id/textView31"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Ya ,tentu"
+                android:textColor="#56AB91"
+                android:textSize="16dp" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardView4"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="40dp"
+            app:cardBackgroundColor="#56AB91"
+            app:cardCornerRadius="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/textView29"
+            app:layout_constraintTop_toBottomOf="@+id/textView29">
+
+            <TextView
+                android:id="@+id/textView30"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/poppins_regular"
+                android:text="Tidak"
+                android:textColor="#FFFFFF"
+                android:textSize="16dp" />
+        </com.google.android.material.card.MaterialCardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
