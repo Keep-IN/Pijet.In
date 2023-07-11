@@ -15,6 +15,7 @@ import com.example.pijetin.data.model.DataRiwayat
 import com.example.pijetin.data.model.DataSpotlight
 import com.example.pijetin.data.model.DataUser
 import com.example.pijetin.databinding.FragmentHomeBinding
+import com.example.pijetin.feature.Profile.Profil
 
 class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
@@ -75,6 +76,9 @@ class HomeFragment : Fragment() {
                 startActivity(Intent(activity, ServicePage::class.java).apply {
                     putExtra("service", "6")
                 })
+            }
+            cvProfile.setOnClickListener {
+                startActivity(Intent(activity, Profil::class.java))
             }
         }
 
