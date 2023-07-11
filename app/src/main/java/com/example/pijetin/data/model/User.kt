@@ -10,11 +10,11 @@ data class User(
     val id: Int = 0,
     val nama: String = "",
     val status: String = "",
-    val noTelp: String = "",
+    val no_telp: String = "",
     val nik: String? = "",
     val email: String = "",
     val password: String = "",
-    val tglLahir: String? = "",
-    val tempatLahir: String? = "",
-    val imageUrl: String? = ""
+    val tanggal_lahir: String? = "",
+    val tempat_lahir: String? = "",
+    val image_url: String? = ""
 ) : Parcelable

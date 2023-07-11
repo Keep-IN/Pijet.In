@@ -10,7 +10,8 @@ import com.example.pijetin.data.Api.UsersAPI
 import com.example.pijetin.data.model.DataToken
 import com.example.pijetin.data.model.UserLoginResponse
 import com.example.pijetin.databinding.ActivityLoginBinding
-import com.example.pijetin.feature.Dashboard.NavBarContainer
+import com.example.pijetin.feature.Dashboard.LoadingView
+import com.example.pijetin.feature.Dashboard.NavbarContainer
 import com.example.pijetin.feature.ForgetPass.ForgetPassword
 
 class Login : AppCompatActivity(), LoginContract {
@@ -85,13 +86,19 @@ class Login : AppCompatActivity(), LoginContract {
     }
 
     override fun onSuccesLogin(user: UserLoginResponse?) {
-        //fungsi pindah login ke dashboard + allert
         if (user != null) {
-            DataToken.token = user.token
+            DataToken.token = user.token.toString()
         }
-        startActivity(Intent(this, NavBarContainer::class.java))
-        Toast.makeText(this, "Login berhasil", Toast.LENGTH_SHORT).show()
-        onFinishedLoading()
+
+        if(DataToken.token != ""){
+            startActivity(Intent(this, LoadingView::class.java))
+            Toast.makeText(this, "Login berhasil", Toast.LENGTH_SHORT).show()
+            onFinishedLoading()
+        }
+        else {
+            Toast.makeText(this, "Email atau Password Salah", Toast.LENGTH_SHORT).show()
+            onFinishedLoading()
+        }
     }
 
     override fun onErrorLogin(code: Int, message: String) {
