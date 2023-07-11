@@ -9,8 +9,11 @@ import android.view.WindowManager
 import android.widget.Toast
 import androidx.activity.OnBackPressedDispatcher
 import com.example.pijetin.R
+import com.example.pijetin.data.Api.OrdersAPI
 import com.example.pijetin.data.Api.UsersAPI
+import com.example.pijetin.data.model.DataOrderList
 import com.example.pijetin.data.model.DataUser
+import com.example.pijetin.data.model.OrderModel
 import com.example.pijetin.data.model.User
 import com.example.pijetin.databinding.ActivityLoadingViewBinding
 import com.example.pijetin.feature.OnBoarding.OnBoarding
@@ -23,7 +26,7 @@ class LoadingView : AppCompatActivity(), HomeContract {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        presenter = HomePresnter(this, UsersAPI()).apply {
+        presenter = HomePresnter(this, UsersAPI(), OrdersAPI()).apply {
             onAttach(this@LoadingView)
         }
 
@@ -35,7 +38,7 @@ class LoadingView : AppCompatActivity(), HomeContract {
         Handler(Looper.getMainLooper()).postDelayed({
             val intent = Intent(this, NavbarContainer::class.java)
             startActivity(intent)
-            finish()
+            finishAffinity()
         }, 3000)
     }
 
@@ -50,6 +53,16 @@ class LoadingView : AppCompatActivity(), HomeContract {
     override fun onFailedgetUser(msg: String) {
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
         OnBackPressedDispatcher().onBackPressed()
+    }
+
+    override fun onSuccesGetOrder(order: List<OrderModel>?) {
+        if (order != null) {
+            DataOrderList.orderList = order.toMutableList()
+        }
+    }
+
+    override fun onFailedGetOrder(msg: String) {
+        TODO("Not yet implemented")
     }
 
     override fun onLoading() {

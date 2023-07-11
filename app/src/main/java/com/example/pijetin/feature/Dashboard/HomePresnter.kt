@@ -1,5 +1,6 @@
 package com.example.pijetin.feature.Dashboard
 
+import com.example.pijetin.data.Api.OrdersAPI
 import com.example.pijetin.data.Api.UsersAPI
 import com.example.pijetin.data.Network.ResponseStatus
 import com.example.pijetin.feature.Login.LoginContract
@@ -13,6 +14,7 @@ import kotlin.coroutines.CoroutineContext
 class HomePresnter(
     private val view: HomeContract,
     private val api: UsersAPI,
+    private val apiOrder: OrdersAPI,
     uiContext: CoroutineContext = Dispatchers.Main
 ) {
     private val supervisorJob: Job = SupervisorJob()
@@ -29,6 +31,17 @@ class HomePresnter(
                 when(it){
                     is ResponseStatus.Success -> view.onSuccesGetUser(it.data?.toMutableList())
                     is ResponseStatus.Failed -> view.onFailedgetUser(it.message)
+                }
+            }
+        }
+    }
+
+    fun getOrderData(){
+        apiOrder.getOrder {
+            scope.launch {
+                when(it){
+                    is ResponseStatus.Success -> view.onSuccesGetOrder(it.data.toMutableList())
+                    is ResponseStatus.Failed -> view.onFailedGetOrder(it.message)
                 }
             }
         }
