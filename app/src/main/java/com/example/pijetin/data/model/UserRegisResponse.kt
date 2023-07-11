@@ -4,5 +4,6 @@ import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
 data class UserRegisResponse(
-    val msg: String
+    val status: Int,
+    val message: String
 )

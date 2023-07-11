@@ -5,6 +5,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+        android:usesCleartextTraffic="true"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -21,7 +22,7 @@
             android:name=".feature.Detail.detail_history"
             android:exported="false" />
         <activity
-            android:name=".feature.Dashboard.NavBarContainer"
+            android:name=".feature.Dashboard.NavbarContainer"
             android:exported="false" />
         <activity
             android:name=".feature.signup.EmailVerification"

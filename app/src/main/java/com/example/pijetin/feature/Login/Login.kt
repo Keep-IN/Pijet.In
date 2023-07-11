@@ -5,14 +5,12 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
-import androidx.core.view.isVisible
 import androidx.core.widget.doOnTextChanged
 import com.example.pijetin.data.Api.UsersAPI
-import com.example.pijetin.data.Network.ResponseStatus
-import com.example.pijetin.data.model.DataUser
+import com.example.pijetin.data.model.DataToken
 import com.example.pijetin.data.model.UserLoginResponse
 import com.example.pijetin.databinding.ActivityLoginBinding
-import com.example.pijetin.feature.Dashboard.NavBarContainer
+import com.example.pijetin.feature.Dashboard.NavbarContainer
 import com.example.pijetin.feature.ForgetPass.ForgetPassword
 
 class Login : AppCompatActivity(), LoginContract {
@@ -89,17 +87,15 @@ class Login : AppCompatActivity(), LoginContract {
     override fun onSuccesLogin(user: UserLoginResponse?) {
         //fungsi pindah login ke dashboard + allert
         if (user != null) {
-            DataUser.nama = user.nama
-            DataUser.email = user.email
-            DataUser.imageUrl = user.imageUrl.toString()
+            DataToken.token = user.token
         }
-        startActivity(Intent(this, NavBarContainer::class.java))
+        startActivity(Intent(this, NavbarContainer::class.java))
         Toast.makeText(this, "Login berhasil", Toast.LENGTH_SHORT).show()
         onFinishedLoading()
     }
 
     override fun onErrorLogin(code: Int, message: String) {
-        Toast.makeText(this, "Login gagal", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
         onFinishedLoading()
     }
 
