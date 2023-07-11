@@ -5,7 +5,6 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:usesCleartextTraffic="true"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -14,10 +13,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PijetIn"
+        android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".feature.Dashboard.LoadingView"
+            android:exported="false" />
+        <activity
             android:name=".feature.ForgetPass.NewPass.NewPassword"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".Profil"
             android:exported="false" />
@@ -31,7 +34,7 @@
             android:name=".feature.Detail.detail_history"
             android:exported="false" />
         <activity
-            android:name=".feature.Dashboard.NavBarContainer"
+            android:name=".feature.Dashboard.NavbarContainer"
             android:exported="false" />
         <activity
             android:name=".feature.signup.EmailVerification"

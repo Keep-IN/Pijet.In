@@ -167,7 +167,7 @@ class UsersAPI {
             })
     }
 
-    fun getUserData(onResponse: (ResponseStatus<List<UserDataResponse>?>) -> Unit){
+    fun getUserData(onResponse: (ResponseStatus<List<User>?>) -> Unit){
         val request = NetworkClient.getWithBearerToken(tokenEndpont,DataToken.token)
         NetworkClient
             .client.newCall(request)
@@ -175,12 +175,14 @@ class UsersAPI {
                 override fun onResponse(call: Call, response: Response) {
                     try{
 //                        val responseBody = response.body?.string() ?: ""
-                        val moshi = Moshi.Builder().build()
-                        val adapter: JsonAdapter<List<UserDataResponse>> = moshi.adapter(Types.newParameterizedType(List::class.java, UserDataResponse::class.java))
-                        val userList = adapter.fromJson(response.body?.string() ?: "") ?: emptyList()
+//                        val moshi = Moshi.Builder().build()
+//                        val adapter: JsonAdapter<List<UserDataResponse>> = moshi.adapter(Types.newParameterizedType(List::class.java, UserDataResponse::class.java))
+//                        val userList = adapter.fromJson(response.body?.string() ?: "") ?: emptyList()
+
+                        val data = deserializeJson<UserList>(response.body?.string() ?: "") ?: UserList(404)
                         if(response.isSuccessful){
                             onResponse.invoke(ResponseStatus.Success(
-                                data = userList,
+                                data = data.user,
                                 method = "GET",
                                 status = true
                             ))

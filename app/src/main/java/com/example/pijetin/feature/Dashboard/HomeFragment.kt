@@ -40,6 +40,11 @@ class HomeFragment : Fragment() {
 
         binding.tvUsername.text = DataUser.nama
 
+        Glide
+            .with(this)
+            .load(DataUser.imageUrl)
+            .into(binding.ivProfile)
+
         adapterRecent.submitList(DataRiwayat.riwayatList)
         binding.rvRecent.adapter = adapterRecent
         binding.rvRecent.layoutManager = layoutManager
@@ -77,11 +82,6 @@ class HomeFragment : Fragment() {
                 })
             }
         }
-
-        Glide
-            .with(this)
-            .load(DataUser.imageUrl)
-            .into(binding.ivProfile)
 
     }
 

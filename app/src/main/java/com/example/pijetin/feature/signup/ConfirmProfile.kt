@@ -3,10 +3,8 @@ package com.example.pijetin.feature.signup
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.pijetin.R
 import com.example.pijetin.databinding.ActivityConfirmProfileBinding
-import com.example.pijetin.databinding.ActivityEmailVerificationBinding
-import com.example.pijetin.feature.Dashboard.NavBarContainer
+import com.example.pijetin.feature.Dashboard.NavbarContainer
 import com.example.pijetin.feature.Lengkapi.LengkapDataDiri
 
 class ConfirmProfile : AppCompatActivity() {
@@ -17,7 +15,7 @@ class ConfirmProfile : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.btnConfirmTolak.setOnClickListener {
-            startActivity(Intent(this, NavBarContainer::class.java))
+            startActivity(Intent(this, NavbarContainer::class.java))
         }
 
         binding.btnConfirm2.setOnClickListener {

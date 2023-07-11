@@ -7,26 +7,23 @@ import androidx.activity.OnBackPressedDispatcher
 import androidx.fragment.app.Fragment
 import com.example.pijetin.R
 import com.example.pijetin.data.Api.UsersAPI
+import com.example.pijetin.data.model.DataToken
 import com.example.pijetin.data.model.DataUser
+import com.example.pijetin.data.model.User
 import com.example.pijetin.data.model.UserDataResponse
 import com.example.pijetin.databinding.ActivityNavBarContainerBinding
 import com.example.pijetin.feature.Chat.ChatFragment
 import com.example.pijetin.feature.History.HistoryFragment
 import com.example.pijetin.feature.Settings.SettingsFragment
 
-class NavBarContainer : AppCompatActivity(), HomeContract {
+class NavbarContainer : AppCompatActivity() {
     private lateinit var binding: ActivityNavBarContainerBinding
-    private lateinit var presenter: HomePresnter
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityNavBarContainerBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+
         replaceFragment(HomeFragment())
-
-        presenter = HomePresnter(this, UsersAPI()).apply {
-            onAttach(this@NavBarContainer)
-        }
-
         binding.bottomNavigationView.selectedItemId = R.id.nav_home
         binding.bottomNavigationView.itemIconTintList = null
         binding.bottomNavigationView.isItemActiveIndicatorEnabled = false
@@ -49,24 +46,4 @@ class NavBarContainer : AppCompatActivity(), HomeContract {
         }
     }
 
-    override fun onSuccesGetUser(user: List<UserDataResponse>?) {
-        user?.forEach {
-            DataUser.nama = it.nama
-            DataUser.email = it.email
-            DataUser.imageUrl = it.image_url.toString()
-        }
-    }
-
-    override fun onFailedgetUser(msg: String) {
-        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
-        OnBackPressedDispatcher().onBackPressed()
-    }
-
-    override fun onLoading() {
-        TODO("Not yet implemented")
-    }
-
-    override fun onFinishedLoading() {
-        TODO("Not yet implemented")
-    }
 }
