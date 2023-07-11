@@ -14,7 +14,7 @@ import com.example.pijetin.feature.Chat.ChatFragment
 import com.example.pijetin.feature.History.HistoryFragment
 import com.example.pijetin.feature.Settings.SettingsFragment
 
-class NavbarContainer : AppCompatActivity(), HomeContract {
+class NavBarContainer : AppCompatActivity(), HomeContract {
     private lateinit var binding: ActivityNavBarContainerBinding
     private lateinit var presenter: HomePresnter
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,7 +24,7 @@ class NavbarContainer : AppCompatActivity(), HomeContract {
         replaceFragment(HomeFragment())
 
         presenter = HomePresnter(this, UsersAPI()).apply {
-            onAttach(this@NavbarContainer)
+            onAttach(this@NavBarContainer)
         }
 
         binding.bottomNavigationView.selectedItemId = R.id.nav_home

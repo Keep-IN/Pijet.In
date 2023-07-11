@@ -10,7 +10,7 @@ import com.example.pijetin.data.Api.UsersAPI
 import com.example.pijetin.data.model.DataToken
 import com.example.pijetin.data.model.UserLoginResponse
 import com.example.pijetin.databinding.ActivityLoginBinding
-import com.example.pijetin.feature.Dashboard.NavbarContainer
+import com.example.pijetin.feature.Dashboard.NavBarContainer
 import com.example.pijetin.feature.ForgetPass.ForgetPassword
 
 class Login : AppCompatActivity(), LoginContract {
@@ -89,7 +89,7 @@ class Login : AppCompatActivity(), LoginContract {
         if (user != null) {
             DataToken.token = user.token
         }
-        startActivity(Intent(this, NavbarContainer::class.java))
+        startActivity(Intent(this, NavBarContainer::class.java))
         Toast.makeText(this, "Login berhasil", Toast.LENGTH_SHORT).show()
         onFinishedLoading()
     }
