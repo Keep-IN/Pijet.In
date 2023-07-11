@@ -23,12 +23,8 @@ class SignUp : AppCompatActivity(), SignUpContract {
             onAtach(this@SignUp)
         }
 
-        binding.imPiw1.setOnClickListener {
-            startActivity(Intent(this, OnBoarding::class.java ))
-        }
-
         binding.btnDaftar.setOnClickListener {
-            startActivity(Intent(this, EmailVerification::class.java ))
+            startActivity(Intent(this, ConfirmProfile::class.java ))
         }
         binding.tPiw16.setOnClickListener {
             startActivity(Intent(this, Login::class.java ))

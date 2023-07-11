@@ -1,28 +1,23 @@
 package com.example.pijetin.feature.Dashboard
 
+import android.content.Intent
 import android.os.Bundle
-import android.provider.ContactsContract.Data
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.activity.OnBackPressedDispatcher
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
-import com.example.pijetin.R
-import com.example.pijetin.data.Api.UsersAPI
+import com.example.pijetin.feature.Services.ServicePage
 import com.example.pijetin.data.adapter.RecentAdapter
 import com.example.pijetin.data.adapter.SpotlightListAdapter
 import com.example.pijetin.data.model.DataRiwayat
 import com.example.pijetin.data.model.DataSpotlight
 import com.example.pijetin.data.model.DataUser
-import com.example.pijetin.data.model.UserDataResponse
 import com.example.pijetin.databinding.FragmentHomeBinding
 
-class HomeFragment : Fragment(), HomeContract {
+class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
-    private lateinit var presenter: HomePresnter
     private val adapterSpotlight: SpotlightListAdapter by lazy { SpotlightListAdapter () }
     private val adapterRecent: RecentAdapter by lazy {RecentAdapter()}
 
@@ -37,11 +32,6 @@ class HomeFragment : Fragment(), HomeContract {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        presenter = HomePresnter(this, UsersAPI().apply {
-            activity?.let { onAttach(it) }
-        })
-        presenter.getUserData()
-
         val layoutManagerHorizontal = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
         val layoutManager = LinearLayoutManager(activity)
         adapterSpotlight.submitList(DataSpotlight.spotlightList)
@@ -54,33 +44,45 @@ class HomeFragment : Fragment(), HomeContract {
         binding.rvRecent.adapter = adapterRecent
         binding.rvRecent.layoutManager = layoutManager
 
+        //Flow untuk tombol di setiap layanan
+        with(binding){
+            btnService01.setOnClickListener {
+                startActivity(Intent(activity, ServicePage::class.java).apply {
+                    putExtra("service", "1")
+                })
+            }
+            btnService02.setOnClickListener {
+                startActivity(Intent(activity, ServicePage::class.java).apply {
+                    putExtra("service", "2")
+                })
+            }
+            btnService03.setOnClickListener {
+                startActivity(Intent(activity, ServicePage::class.java).apply {
+                    putExtra("service", "3")
+                })
+            }
+            btnService04.setOnClickListener {
+                startActivity(Intent(activity, ServicePage::class.java).apply {
+                    putExtra("service", "4")
+                })
+            }
+            btnService05.setOnClickListener {
+                startActivity(Intent(activity, ServicePage::class.java).apply {
+                    putExtra("service", "5")
+                })
+            }
+            btnService06.setOnClickListener {
+                startActivity(Intent(activity, ServicePage::class.java).apply {
+                    putExtra("service", "6")
+                })
+            }
+        }
+
         Glide
             .with(this)
             .load(DataUser.imageUrl)
             .into(binding.ivProfile)
 
-    }
-
-    override fun onSuccesGetUser(user: List<UserDataResponse>?) {
-        user?.forEach {
-            DataUser.nama = it.nama
-            DataUser.email = it.email
-            DataUser.imageUrl = it.image_url.toString()
-        }
-        onFinishedLoading()
-    }
-
-    override fun onFailedgetUser(msg: String) {
-        Toast.makeText(activity, msg, Toast.LENGTH_SHORT).show()
-        OnBackPressedDispatcher().onBackPressed()
-    }
-
-    override fun onLoading() {
-        binding.cvLoadingBg.visibility = View.VISIBLE
-    }
-
-    override fun onFinishedLoading() {
-        binding.cvLoadingBg.visibility = View.GONE
     }
 
 }
