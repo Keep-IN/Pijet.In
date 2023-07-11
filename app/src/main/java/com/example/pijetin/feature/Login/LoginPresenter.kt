@@ -24,7 +24,6 @@ class LoginPresenter(
 
     fun onAttach(view: LoginContract){
         this.view
-
     }
     fun validateEmail(email: String): Boolean {
         //validasi format email

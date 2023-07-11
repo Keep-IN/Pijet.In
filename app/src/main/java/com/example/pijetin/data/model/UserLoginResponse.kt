@@ -7,8 +7,9 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 @JsonClass(generateAdapter = true)
 data class UserLoginResponse(
-    val uuid: String,
-    val email: String,
+    val status: Int,
+    val token: String,
     val nama: String,
-    val imageUrl: String?
+    val email: String,
+    val image_url: String?
 ): Parcelable

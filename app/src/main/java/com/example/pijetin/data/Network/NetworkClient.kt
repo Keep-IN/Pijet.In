@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit
 
 class NetworkClient {
     companion object {
-        private const val BASE_URL = "https://pijat-in-be.onrender.com"
+        private const val BASE_URL = "http://45.32.103.75/v1/api"
         private val headerInterceptor: Interceptor = Interceptor {
             val request = it.request().newBuilder()
             request
@@ -36,10 +36,11 @@ class NetworkClient {
                 .build()
         }
 
-        fun requestBuilder(endpoint: String, method: METHOD = METHOD.GET, jsonBody: String? = null): Request {
+        fun requestBuilder(endpoint: String, token:String, method: METHOD = METHOD.GET, jsonBody: String? = null): Request {
             val request = Request
                 .Builder()
                 .url("$BASE_URL$endpoint")
+                .header("Get User Data", "Bearer $token")
 
             if (jsonBody != null)
                 request.method(method.name, jsonBody.toRequestBody())
@@ -47,10 +48,22 @@ class NetworkClient {
             return request.build()
         }
 
-        fun makeCallApi(endpoint: String, method: METHOD = METHOD.GET, jsonBody: String? = null): Call {
-            val request = requestBuilder(endpoint, method, jsonBody)
-            return client.newCall(request)
+        fun getWithBearerToken(endpoint: String, token:String, method: METHOD = METHOD.GET, jsonBody: String? = null): Request {
+            val request = Request.Builder()
+                .url("$BASE_URL$endpoint")
+                .header("Authorization", "Bearer $token")
+                .get()
+
+            if (jsonBody != null)
+                request.method(method.name, jsonBody.toRequestBody())
+
+            return request.build()
         }
+
+//        fun makeCallApi(endpoint: String, method: METHOD = METHOD.GET, jsonBody: String? = null): Call {
+//            val request = requestBuilder(endpoint, method, jsonBody)
+//            return client.newCall(request)
+//        }
     }
 
     enum class METHOD {
