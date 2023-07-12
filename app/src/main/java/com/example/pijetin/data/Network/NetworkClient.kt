@@ -2,6 +2,7 @@ package com.example.pijetin.data.Network
 
 import io.bitfactory.pincodelayout.BuildConfig
 import okhttp3.Call
+import okhttp3.FormBody
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.Request
@@ -53,6 +54,21 @@ class NetworkClient {
                 .url("$BASE_URL$endpoint")
                 .header("Authorization", "Bearer $token")
                 .get()
+
+            if (jsonBody != null)
+                request.method(method.name, jsonBody.toRequestBody())
+
+            return request.build()
+        }
+
+        // TODO: ADD ORDER REQUEST BODY WITH ORDER ITEM MODEL
+        fun postWithBearerToken (endpoint: String, token:String, method: METHOD = METHOD.POST, jsonBody: String? = null): Request {
+            val requestBody = FormBody.Builder()
+                .build()
+            val request = Request.Builder()
+                .url("$BASE_URL$endpoint")
+                .header("Order_token", "Bearer $token")
+                .post(requestBody)
 
             if (jsonBody != null)
                 request.method(method.name, jsonBody.toRequestBody())

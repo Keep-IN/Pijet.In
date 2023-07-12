@@ -4,7 +4,7 @@ interface SignUpContract {
     fun onLoading()
     fun onFinishedLoading()
     fun onError(code: Int, message: String)
-    fun onSuccesRegister()
+    fun onSuccesRegister(code: Int)
     fun onSucces()
     fun onErrorSignup(message: String)
     fun onErrorSuccess(code: Int, message: String)

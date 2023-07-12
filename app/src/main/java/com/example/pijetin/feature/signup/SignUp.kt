@@ -100,10 +100,15 @@ class SignUp : AppCompatActivity(), SignUpContract {
         }
     }
 
-    override fun onSuccesRegister() {
-        startActivity(Intent(this, Login::class.java))
-        Toast.makeText(this, "Akun berhasil terdaftar", Toast.LENGTH_SHORT).show()
-        onFinishedLoading()
+    override fun onSuccesRegister(code: Int) {
+        if (code == 404){
+            Toast.makeText(this, "Signup Error", Toast.LENGTH_SHORT).show()
+        }
+        else {
+            startActivity(Intent(this, Login::class.java))
+            Toast.makeText(this, "Akun berhasil terdaftar", Toast.LENGTH_SHORT).show()
+            onFinishedLoading()
+        }
     }
 
     override fun onSucces() {

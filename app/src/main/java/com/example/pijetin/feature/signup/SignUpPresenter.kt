@@ -75,7 +75,7 @@ class SignUpPresenter (
         api.addUser(nama, noTelp, email, password){
             scope.launch {
                 when(it){
-                    is ResponseStatus.Success -> view.onSuccesRegister()
+                    is ResponseStatus.Success -> view.onSuccesRegister(it.data)
                     is ResponseStatus.Failed -> view.onErrorSignup(it.message)
                 }
             }

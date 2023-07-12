@@ -114,7 +114,7 @@ class UsersAPI {
         })
     }
 
-    fun addUser(nama: String, no_telp: String, email: String, password: String, onResponse: (ResponseStatus<UserRegisResponse?>) -> Unit){
+    fun addUser(nama: String, no_telp: String, email: String, password: String, onResponse: (ResponseStatus<Int>) -> Unit){
         val requestBody = FormBody.Builder()
             .add("nama", nama)
             .add("no_telp", no_telp)
@@ -135,13 +135,15 @@ class UsersAPI {
                             val moshi = Moshi.Builder().build()
                             val adapter: JsonAdapter<UserRegisResponse> = moshi.adapter(UserRegisResponse::class.java)
                             val user = adapter.fromJson(responseData)
-                            onResponse.invoke(
-                                ResponseStatus.Success(
-                                    data = user,
-                                    method = "POST",
-                                    status = true
+                            if (user != null) {
+                                onResponse.invoke(
+                                    ResponseStatus.Success(
+                                        data = user.status,
+                                        method = "POST",
+                                        status = true
+                                    )
                                 )
-                            )
+                            }
                         } catch (e: JsonDataException) {
                             onResponse.invoke(
                                 ResponseStatus.Failed(
