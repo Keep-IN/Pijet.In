@@ -11,7 +11,6 @@ import com.example.pijetin.data.model.DataToken
 import com.example.pijetin.data.model.UserLoginResponse
 import com.example.pijetin.databinding.ActivityLoginBinding
 import com.example.pijetin.feature.Dashboard.LoadingView
-import com.example.pijetin.feature.Dashboard.NavbarContainer
 import com.example.pijetin.feature.ForgetPass.ForgetPassword
 
 class Login : AppCompatActivity(), LoginContract {

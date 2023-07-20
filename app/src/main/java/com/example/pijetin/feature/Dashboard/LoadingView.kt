@@ -8,12 +8,10 @@ import android.os.Looper
 import android.view.WindowManager
 import android.widget.Toast
 import androidx.activity.OnBackPressedDispatcher
-import com.example.pijetin.R
 import com.example.pijetin.data.Api.UsersAPI
 import com.example.pijetin.data.model.DataUser
 import com.example.pijetin.data.model.User
 import com.example.pijetin.databinding.ActivityLoadingViewBinding
-import com.example.pijetin.feature.OnBoarding.OnBoarding
 
 class LoadingView : AppCompatActivity(), HomeContract {
     private lateinit var binding: ActivityLoadingViewBinding

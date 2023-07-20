@@ -16,6 +16,21 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".feature.Profil.Profil"
+            android:exported="false" />
+        <activity
+            android:name=".feature.Alamat.TambahAlamat.TambahAlamat"
+            android:exported="false" />
+        <activity
+            android:name=".feature.Alamat.UbahAlamat.UbahAlamat"
+            android:exported="false" />
+        <activity
+            android:name=".feature.Alamat.Alamat"
+            android:exported="false" />
+        <activity
+            android:name=".alamat"
+            android:exported="false" />
+        <activity
             android:name=".feature.Dashboard.LoadingView"
             android:exported="false" />
         <activity
