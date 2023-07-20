@@ -45,6 +45,8 @@ class MapAddress : AppCompatActivity(), OnMapReadyCallback {
         binding.mvDevice.onCreate(savedInstanceState)
         binding.mvDevice.getMapAsync(this)
 
+        requestLocationUpdates()
+
         binding.btnLocation.setOnClickListener {
             requestLocationUpdates()
         }
