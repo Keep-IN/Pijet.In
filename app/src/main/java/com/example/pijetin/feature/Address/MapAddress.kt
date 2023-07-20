@@ -22,6 +22,7 @@ import android.location.Geocoder
 import android.net.Uri
 import com.example.pijetin.data.model.DataAddress
 import com.google.android.gms.maps.model.BitmapDescriptorFactory
+import com.google.android.gms.maps.model.CameraPosition
 import com.google.android.gms.maps.model.MarkerOptions
 import java.io.IOException
 import java.util.Locale
@@ -31,6 +32,7 @@ class MapAddress : AppCompatActivity(), OnMapReadyCallback {
     private lateinit var fusedLocationClient: FusedLocationProviderClient
     private lateinit var locationRequest: LocationRequest
     private lateinit var googleMap: GoogleMap
+    private var currentCameraPosition: CameraPosition? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityMapAddressBinding.inflate(layoutInflater)
@@ -46,7 +48,6 @@ class MapAddress : AppCompatActivity(), OnMapReadyCallback {
         binding.mvDevice.getMapAsync(this)
 
         requestLocationUpdates()
-
         binding.btnLocation.setOnClickListener {
             requestLocationUpdates()
         }
@@ -118,6 +119,9 @@ class MapAddress : AppCompatActivity(), OnMapReadyCallback {
                 val zoomLevel = 17f
                 val cameraUpdate = CameraUpdateFactory.newLatLngZoom(currentLocation, zoomLevel)
                 googleMap.animateCamera(cameraUpdate)
+                binding.btnLocation.setOnClickListener {
+                    googleMap.animateCamera(cameraUpdate)
+                }
 
                 DataAddress.address = getAddress(applicationContext, DataAddress.latitude, DataAddress.longitude)
                 binding.tvAddress.text = "Address: \n ${DataAddress.address}"
@@ -128,6 +132,7 @@ class MapAddress : AppCompatActivity(), OnMapReadyCallback {
                         .title("Current Location")
                 )
                 DataAddress.mapUrl = createMapUrl(DataAddress.latitude, DataAddress.longitude)
+                currentCameraPosition = googleMap.cameraPosition
             }
         }
     }
@@ -159,6 +164,11 @@ class MapAddress : AppCompatActivity(), OnMapReadyCallback {
         }
 
         return urlBuilder.toString()
+    }
+    private fun centerOnCurrentLocation() {
+        currentCameraPosition?.let { position ->
+            googleMap.moveCamera(CameraUpdateFactory.newCameraPosition(position))
+        }
     }
 
     companion object {
