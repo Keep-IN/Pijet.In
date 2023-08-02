@@ -32,7 +32,6 @@ class MapAddress : AppCompatActivity(), OnMapReadyCallback {
     private lateinit var fusedLocationClient: FusedLocationProviderClient
     private lateinit var locationRequest: LocationRequest
     private lateinit var googleMap: GoogleMap
-    private var currentCameraPosition: CameraPosition? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityMapAddressBinding.inflate(layoutInflater)
@@ -132,7 +131,6 @@ class MapAddress : AppCompatActivity(), OnMapReadyCallback {
                         .title("Current Location")
                 )
                 DataAddress.mapUrl = createMapUrl(DataAddress.latitude, DataAddress.longitude)
-                currentCameraPosition = googleMap.cameraPosition
             }
         }
     }
@@ -164,11 +162,6 @@ class MapAddress : AppCompatActivity(), OnMapReadyCallback {
         }
 
         return urlBuilder.toString()
-    }
-    private fun centerOnCurrentLocation() {
-        currentCameraPosition?.let { position ->
-            googleMap.moveCamera(CameraUpdateFactory.newCameraPosition(position))
-        }
     }
 
     companion object {
