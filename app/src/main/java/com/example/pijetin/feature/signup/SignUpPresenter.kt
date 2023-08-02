@@ -22,12 +22,14 @@ class SignUpPresenter (
     private var isTelephoneValid = false
     private var isValidateRepassword = false
     private var isEmailAvailable = false
+    private var isUsernameValid = false
 
    fun onAtach(view: SignUpContract) {
        this.view
    }
+
     fun validateEmail(email: String): Boolean {
-        val isEmailValid = email.contains("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}\$".toRegex())
+        val isEmailValid = email.contains("^[^\\.]+@(?!\\.)(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}\$".toRegex())
         if (!isEmailValid){
             view.onError(1,"Format email tidak sesuai")
         } else {

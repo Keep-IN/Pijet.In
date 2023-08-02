@@ -30,6 +30,8 @@ class SignUp : AppCompatActivity(), SignUpContract {
             startActivity(Intent(this, Login::class.java ))
         }
 
+
+
         binding.tilEmail.editText?.doOnTextChanged { text, start, before, count ->
             validateInput()
             presenter.validateEmail(binding.tilEmail.editText?.text.toString(), )
@@ -97,6 +99,7 @@ class SignUp : AppCompatActivity(), SignUpContract {
             3 ->binding.tilPassword.error = message
             4 ->binding.tilTelephone.error = message
             5 ->binding.tilRePassword.error = message
+
         }
     }
 
@@ -125,6 +128,7 @@ class SignUp : AppCompatActivity(), SignUpContract {
             6 ->binding.tilTelephone.isErrorEnabled =false
             1 ->binding.tilEmail.isErrorEnabled =false
             7 ->binding.tilRePassword.isErrorEnabled =false
+
         }
     }
 }

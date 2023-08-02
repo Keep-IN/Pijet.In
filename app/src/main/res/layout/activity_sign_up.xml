@@ -31,6 +31,8 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:maxLength="50"
+                    android:digits=" abcdefghijklmnopqrstuvwxyz "
                     android:background="@drawable/ic_text_field_real" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -134,8 +136,19 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:maxLength="13"
                     android:background="@drawable/ic_text_field"
                     android:inputType="number" />
+
+                <FrameLayout
+                    android:id="@+id/bgLoadingSignup"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:background="#4F000000"
+                    android:elevation="1dp"
+                    android:visibility="invisible">
+
+                </FrameLayout>
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
@@ -326,19 +339,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <FrameLayout
-                android:id="@+id/bgLoadingSignup"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:background="#4F000000"
-                android:elevation="1dp"
-                android:visibility="invisible"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-            </FrameLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 
