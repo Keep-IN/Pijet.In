@@ -34,7 +34,6 @@ class HistoryFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val layoutManager = LinearLayoutManager(activity)
-        adapterHistory.submitList(DataRiwayat.riwayatList)
         binding.rvHistory.adapter = adapterHistory
         binding.rvHistory.layoutManager = layoutManager
         adapterHistory.setOnclickItem(rvClickListener)

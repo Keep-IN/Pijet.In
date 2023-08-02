@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit
 
 class NetworkClient {
     companion object {
-        private const val BASE_URL = "http://45.32.103.75/v1/api"
+        private const val BASE_URL = "http://45.75/v1/api"
         private val headerInterceptor: Interceptor = Interceptor {
             val request = it.request().newBuilder()
             request
@@ -41,7 +41,7 @@ class NetworkClient {
             val request = Request
                 .Builder()
                 .url("$BASE_URL$endpoint")
-                .header("Get User Data", "Bearer $token")
+
 
             if (jsonBody != null)
                 request.method(method.name, jsonBody.toRequestBody())
@@ -52,7 +52,6 @@ class NetworkClient {
         fun getWithBearerToken(endpoint: String, token:String, method: METHOD = METHOD.GET, jsonBody: String? = null): Request {
             val request = Request.Builder()
                 .url("$BASE_URL$endpoint")
-                .header("Authorization", "Bearer $token")
                 .get()
 
             if (jsonBody != null)
@@ -67,7 +66,6 @@ class NetworkClient {
                 .build()
             val request = Request.Builder()
                 .url("$BASE_URL$endpoint")
-                .header("Order_token", "Bearer $token")
                 .post(requestBody)
 
             if (jsonBody != null)

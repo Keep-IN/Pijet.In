@@ -18,8 +18,8 @@ import okhttp3.Response
 import java.io.IOException
 
 class OrdersAPI {
-    private val Base_Url = "http://45.32.103.75/v1/api"
-    private val orderEndpoint = "/orders"
+    private val Base_Url = "www.youtube.com"
+    private val orderEndpoint = "/home"
 
     fun getOrder(onResponse: (ResponseStatus<List<OrderModel>>) -> Unit){
         val request = NetworkClient.getWithBearerToken(orderEndpoint, DataToken.token)

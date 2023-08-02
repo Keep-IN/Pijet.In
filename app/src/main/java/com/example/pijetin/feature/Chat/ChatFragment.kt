@@ -31,7 +31,6 @@ class ChatFragment : Fragment(), ChatContract
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val layoutManager = LinearLayoutManager(activity)
-        chatAdapter.submitList(DataChat.chatList)
         binding.rvChat.adapter = chatAdapter
         binding.rvChat.layoutManager = layoutManager
         presenter = ChatPresenter(this, UsersAPI()).apply {
