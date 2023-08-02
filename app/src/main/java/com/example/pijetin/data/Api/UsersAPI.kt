@@ -153,6 +153,10 @@ class UsersAPI {
                                 )
                             )
                         }
+                    } else{
+                        onResponse.invoke(
+                            mapFailedResponse(response)
+                        )
                     }
                     response.body?.close()
                 }

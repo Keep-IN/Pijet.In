@@ -1,8 +1,10 @@
 package com.example.pijetin.feature.Services
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.core.content.ContextCompat
+import com.example.pijetin.feature.Address.MapAddress
 import com.example.pijetin.R
 import com.example.pijetin.databinding.ActivityServicePageBinding
 
@@ -16,6 +18,10 @@ class ServicePage : AppCompatActivity() {
 
         binding.btnBack.setOnClickListener {
             onBackPressedDispatcher.onBackPressed()
+        }
+
+        binding.flAdressService.setOnClickListener {
+            startActivity(Intent(this, MapAddress::class.java))
         }
 
         //Menentukan isi dari detail halaman sesuai dengan kode yang dikirim dari halaman sebelumnya

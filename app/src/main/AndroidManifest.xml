@@ -3,6 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
 
     <application
         android:allowBackup="true"
@@ -15,6 +18,9 @@
         android:theme="@style/Theme.PijetIn"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
+        <activity
+            android:name=".feature.Address.MapAddress"
+            android:exported="false" />
         <activity
             android:name=".feature.Dashboard.LoadingView"
             android:exported="false" />
@@ -70,6 +76,10 @@
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyBBd4ocNHBFBwubZfZ54m2-XCSdIA5T1NU" />
     </application>
 
 </manifest>
